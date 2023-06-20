@@ -255,6 +255,7 @@ var options = {
     },
     height: 450,
     type: "rangeBar",
+    zoom:false,
   },
 
   plotOptions: {
@@ -269,16 +270,38 @@ var options = {
     type: "numeric",
     min: 0,
     max: 23,
-    // categories: [
-    //   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-    //   21, 22, 23,
-    // ],
+    tickAmount: 24,
+
+    // labels: {
+    //   formatter: function (value) {
+    //     return value.toString();
+    //   },
+    // range: 1,
+    // type: "category",
+    // labels: Array.from({ length: 24 }, (_, i) => i.toString()),
+    // labels: {
+    //   formatter: function (value) {
+    //     return value.toString();
+    //   },
   },
   dataLabels: {
     enabled: true,
     formatter: function (val) {
       var diff = val[1] - val[0];
       return diff + (diff > 1 ? " Hours" : " Hour");
+    },
+    offsetX: 0,
+    offsetY: 0,
+    style: {
+      colors: "#000000",
+      background: {
+        enabled: true,
+        foreColor: "#000000",
+        padding: 8,
+        borderRadius: 4,
+        borderWidth: 1,
+        borderColor: "#000000",
+      },
     },
   },
   stroke: {
@@ -298,7 +321,42 @@ var options = {
   tooltip: {
     enabled: true,
   },
+  grid: {
+    show: true,
+    borderColor: "#f0f0f0",
+    strokeDashArray: 0,
+    position: "back",
+    xaxis: {
+      lines: {
+        show: true,
+      },
+    },
+    yaxis: {
+      lines: {
+        show: false,
+      },
+      padding: {
+        top: 0,
+        right: 42,
+        bottom: 0,
+        left: 0,
+      },
+    },
+  },
+  autoSelected: false,
 };
 
+  var sum = 0;
+var totalHoursData = options.series[0].data.map(function (item) {
+
+  var diff = item.y[1] - item.y[0];
+  sum = sum + diff;
+  // var totalHours = diff > 0 ? diff : 24 + diff;
+  console.log(sum); // Calculate total hours
+  return {
+    x: item.x,
+    // totalHours: totalHours,
+  };
+});
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
