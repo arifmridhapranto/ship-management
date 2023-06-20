@@ -276,6 +276,13 @@ body {
 }
 
 
+
+.breakdown-chart {
+    background-color: var(--white);
+    border-radius: var(--large-border-radius);
+    padding: 24px 20px 40px 20px;
+}
+
 /* grabs style here  */
 
 /* timeline section start  */

@@ -108,7 +108,7 @@ $(document).ready(function () {
     showMonths: 1,
     format: "YYYY-MM-DD",
     isRange: true,
-    between:'month',
+    between: "month",
     shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
   });
   console.log("datePicker: ");
@@ -121,3 +121,184 @@ $(document).ready(function () {
     });
   });
 });
+
+// chart code here
+// var options = {
+//   chart: {
+//     type: "line",
+//   },
+//   series: [
+//     {
+//       name: "sales",
+//       data: [30, 40, 35, 50, 49, 60, 70, 91, 125],
+//     },
+//   ],
+//   xaxis: {
+//     categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+//   },
+// };
+
+// var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+// chart.render();
+
+// var options = {
+//   series: [
+//     {
+//       data: [
+//         {
+//           x: "TEAM A",
+//           y: [10, 12],
+//         },
+//         {
+//           x: "TEAM B",
+//           y: [16, 18],
+//         },
+//         {
+//           x: "TEAM C",
+//           y: [18, 23],
+//         },
+//       ],
+//     },
+//   ],
+//   chart: {
+//     height: 450,
+//     type: "rangeBar",
+//   },
+//   plotOptions: {
+//     bar: {
+//       horizontal: true,
+//       barHeight: "50px",
+//     },
+//   },
+//   xaxis: {
+//     categories: [
+//       // "M.V Jawad",
+//       // "M.V Nasir",
+//       // "M.V Awal","M.V Sahin",
+//       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+//       21, 22, 23,
+//     ],
+//   },
+//   stroke: {
+//     width: 1,
+//   },
+//   fill: {
+//     type: "solid",
+//     opacity: 0.6,
+//   },
+//   legend: {
+//     position: "top",
+//     horizontalAlign: "left",
+//   },
+//   chart: {
+//     toolbar: {
+//       show: false,
+//       offsetX: 0,
+//       offsetY: 0,
+//       tools: {
+//         download: true,
+//         selection: false,
+//         zoom: false,
+//         zoomin: false,
+//         zoomout: false,
+//         pan: false,
+//         reset: false | '<img src="/static/icons/reset.png" width="20">',
+//         customIcons: [],
+//       },
+//       autoSelected: false,
+//     },
+//   },
+// };
+
+// var chart = new ApexCharts(document.querySelector("#chart"), options);
+// chart.render();
+
+var options = {
+  series: [
+    {
+      data: [
+        {
+          x: "M.V Jawad",
+          y: [3, 7],
+        },
+        {
+          x: "M.V Nasir",
+          y: [9, 11],
+        },
+        {
+          x: "M.V Awal",
+          y: [16, 23],
+        },
+        {
+          x: "M.V Sahin",
+          y: [18, 19],
+        },
+        {
+          x: "M.V Jawad",
+          y: [9, 13],
+        },
+        {
+          x: "M.V Nasir",
+          y: [15, 18],
+        },
+        {
+          x: "M.V Sahin",
+          y: [7, 14],
+        },
+      ],
+    },
+  ],
+  chart: {
+    toolbar: {
+      show: false,
+    },
+    height: 450,
+    type: "rangeBar",
+  },
+
+  plotOptions: {
+    bar: {
+      horizontal: true,
+      barHeight: "70%",
+      borderRadius: "30",
+      distributed: true,
+    },
+  },
+  xaxis: {
+    type: "numeric",
+    min: 0,
+    max: 23,
+    // categories: [
+    //   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    //   21, 22, 23,
+    // ],
+  },
+  dataLabels: {
+    enabled: true,
+    formatter: function (val) {
+      var diff = val[1] - val[0];
+      return diff + (diff > 1 ? " Hours" : " Hour");
+    },
+  },
+  stroke: {
+    width: 1,
+  },
+  fill: {
+    type: "solid",
+    opacity: 0.6,
+  },
+  legend: {
+    position: "top",
+    horizontalAlign: "left",
+  },
+  // labels: {
+  //   // show:true,
+  // },
+  tooltip: {
+    enabled: true,
+  },
+};
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render();
