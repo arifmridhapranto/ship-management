@@ -110,14 +110,15 @@ $(document).ready(function () {
     shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
   });
 
-  $(".custom-date").datePicker({
+  $(".custom-date-breakdown").datePicker({
     language: "en",
-    // hasShortcut: true,
-    // showMonths: 1,
-    // format: "YYYY-MM-DD",
-    // isRange: true,
-    // between: "month",
-    // shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
+    isRange: true,
+    hasShortcut: true,
+    showMonths: 1,
+    format: "YYYY-MM-DD",
+    isRange: true,
+    between: "month",
+    shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
   });
 
   // Change the position of the calendar dropdown
@@ -168,7 +169,7 @@ var options = {
     toolbar: {
       show: false,
     },
-    height: 450,
+    height: 300,
     type: "rangeBar",
     zoom: false,
   },
@@ -176,8 +177,8 @@ var options = {
   plotOptions: {
     bar: {
       horizontal: true,
-      barHeight: "70%",
-      borderRadius: "30",
+      barHeight: "60%",
+      borderRadius: "15",
       distributed: true,
     },
   },
@@ -201,7 +202,7 @@ var options = {
         enabled: true,
         foreColor: "#000000",
         padding: 8,
-        borderRadius: 4,
+        borderRadius: 50,
         borderWidth: 1,
         borderColor: "#000000",
       },
@@ -254,9 +255,59 @@ var totalHoursData = options.series[0].data.map(function (item) {
   var diff = item.y[1] - item.y[0];
   sum = sum + diff;
   // var totalHours = diff > 0 ? diff : 24 + diff;
- // Calculate total hours
+  // Calculate total hours
   return sum;
 });
 
+const total = document.getElementById("total");
+total.innerText = sum.toString() + " hours";
+
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
+
+// print modal
+// var myModal = document.getElementById("myModal");
+// var myInput = document.getElementById("myInput");
+
+// myModal.addEventListener("shown.bs.modal", function () {
+//   myInput.focus();
+// });
+
+// function printFile() {
+//   var printWindow = window.open("", "_blank");
+//   var printStyles = `
+//     <style>
+//       /* Hide non-printable elements */
+//       body * {
+//         display: none;
+//       }
+
+//       /* Show the print content */
+//       #print-content {
+//         display: block;
+//       }
+//     </style>
+//   `;
+
+//   // Get the modal content by its ID
+//   var modalContent = document.getElementById("print-content").innerHTML;
+
+//   printWindow.document.write("<html><head>" + printStyles + "</head><body>");
+//   printWindow.document.write(modalContent);
+//   printWindow.document.write("</body></html>");
+
+//   printWindow.print();
+//   printWindow.close();
+// }
+
+
+$(document).ready(function () {
+  $("#printButton").click(function () {
+    var printContents = $("#print-content").html();
+    var originalContents = $("body").html();
+
+    $("body").empty().html(printContents);
+    window.print();
+    $("body").html(originalContents);
+  });
+});

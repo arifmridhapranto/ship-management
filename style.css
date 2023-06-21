@@ -304,13 +304,14 @@ body {
     border-radius: var(--large-border-radius);
     padding: 24px 20px 40px 20px;
 }
-.breakdown-chart .header-box{
+
+.breakdown-chart .header-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.breakdown-chart .time-zone{
+.breakdown-chart .time-zone {
     display: flex;
     gap: 20px;
     align-items: center;
@@ -740,10 +741,72 @@ body {
 
 
 
+.modal-dialog {
+    max-width: 70vw;
+    margin: auto;
+}
 
+.modal-dialog .modal-body {
+    border: 1px solid #e6e6e6;
+    border-radius: var(--large-border-radius);
+    margin: 20px;
+    padding: 12px;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-style: hidden;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr{
+    border: none !important;
+}
+
+.modal-dialog .modal-body .table thead {
+    background-color: var(--blue-color) !important;
+    border-radius: 26px !important;
+}
+.table thead tr {
+    border-radius: 26px !important;
+}
+.table thead tr th:first-child{
+border-radius: 6px 0px 0px 6px;;
+}
+.table thead tr th:last-child {
+    border-radius: 0px 6px 6px 0px;
+    ;
+}
+
+.modal-dialog .modal-body .table thead tr {
+    border-radius: 26px !important;
+}
+
+.modal-dialog .modal-body .table thead th {
+    background-color: transparent;
+}
+
+.modal-dialog .modal-body .table tbody {
+    background-color: var(--white);
+}
 
 body .c-datepicker-picker {
     top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+@media print {
+    .custom-btn{
+        display: none;
+    }
+        .print-btn {
+            display: none;
+        }
+
 }
