@@ -100,8 +100,6 @@ $(document).ready(function () {
     ],
   };
 
-  const setDate = () => {};
-
   $(".J-datepicker-range-day").datePicker({
     language: "en",
     hasShortcut: true,
@@ -111,108 +109,25 @@ $(document).ready(function () {
     between: "month",
     shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
   });
-  console.log("datePicker: ");
+
+  $(".custom-date").datePicker({
+    language: "en",
+    // hasShortcut: true,
+    // showMonths: 1,
+    // format: "YYYY-MM-DD",
+    // isRange: true,
+    // between: "month",
+    // shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
+  });
 
   // Change the position of the calendar dropdown
-  $(".J-datepicker-range-day").on("click", function () {
-    $(".c-datepicker-date-range-picker").css({
-      // top: "50%", // Adjust the vertical position as needed
-      // left: "35%", // Adjust the horizontal position as needed
-    });
-  });
+  // $(".J-datepicker-range-day").on("click", function () {
+  //   $(".c-datepicker-date-range-picker").css({
+  //     // top: "50%", // Adjust the vertical position as needed
+  //     // left: "35%", // Adjust the horizontal position as needed
+  //   });
+  // });
 });
-
-// chart code here
-// var options = {
-//   chart: {
-//     type: "line",
-//   },
-//   series: [
-//     {
-//       name: "sales",
-//       data: [30, 40, 35, 50, 49, 60, 70, 91, 125],
-//     },
-//   ],
-//   xaxis: {
-//     categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
-//   },
-// };
-
-// var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-// chart.render();
-
-// var options = {
-//   series: [
-//     {
-//       data: [
-//         {
-//           x: "TEAM A",
-//           y: [10, 12],
-//         },
-//         {
-//           x: "TEAM B",
-//           y: [16, 18],
-//         },
-//         {
-//           x: "TEAM C",
-//           y: [18, 23],
-//         },
-//       ],
-//     },
-//   ],
-//   chart: {
-//     height: 450,
-//     type: "rangeBar",
-//   },
-//   plotOptions: {
-//     bar: {
-//       horizontal: true,
-//       barHeight: "50px",
-//     },
-//   },
-//   xaxis: {
-//     categories: [
-//       // "M.V Jawad",
-//       // "M.V Nasir",
-//       // "M.V Awal","M.V Sahin",
-//       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-//       21, 22, 23,
-//     ],
-//   },
-//   stroke: {
-//     width: 1,
-//   },
-//   fill: {
-//     type: "solid",
-//     opacity: 0.6,
-//   },
-//   legend: {
-//     position: "top",
-//     horizontalAlign: "left",
-//   },
-//   chart: {
-//     toolbar: {
-//       show: false,
-//       offsetX: 0,
-//       offsetY: 0,
-//       tools: {
-//         download: true,
-//         selection: false,
-//         zoom: false,
-//         zoomin: false,
-//         zoomout: false,
-//         pan: false,
-//         reset: false | '<img src="/static/icons/reset.png" width="20">',
-//         customIcons: [],
-//       },
-//       autoSelected: false,
-//     },
-//   },
-// };
-
-// var chart = new ApexCharts(document.querySelector("#chart"), options);
-// chart.render();
 
 var options = {
   series: [
@@ -255,7 +170,7 @@ var options = {
     },
     height: 450,
     type: "rangeBar",
-    zoom:false,
+    zoom: false,
   },
 
   plotOptions: {
@@ -271,18 +186,6 @@ var options = {
     min: 0,
     max: 23,
     tickAmount: 24,
-
-    // labels: {
-    //   formatter: function (value) {
-    //     return value.toString();
-    //   },
-    // range: 1,
-    // type: "category",
-    // labels: Array.from({ length: 24 }, (_, i) => i.toString()),
-    // labels: {
-    //   formatter: function (value) {
-    //     return value.toString();
-    //   },
   },
   dataLabels: {
     enabled: true,
@@ -320,43 +223,40 @@ var options = {
   // },
   tooltip: {
     enabled: true,
-  },
-  grid: {
-    show: true,
-    borderColor: "#f0f0f0",
-    strokeDashArray: 0,
-    position: "back",
-    xaxis: {
-      lines: {
-        show: true,
+    grid: {
+      show: true,
+      borderColor: "#f0f0f0",
+      strokeDashArray: 0,
+      position: "back",
+      xaxis: {
+        lines: {
+          show: true,
+        },
       },
-    },
-    yaxis: {
-      lines: {
-        show: false,
-      },
-      padding: {
-        top: 0,
-        right: 42,
-        bottom: 0,
-        left: 0,
+      yaxis: {
+        lines: {
+          show: false,
+        },
+        padding: {
+          top: 0,
+          right: 42,
+          bottom: 0,
+          left: 0,
+        },
       },
     },
   },
   autoSelected: false,
 };
 
-  var sum = 0;
+var sum = 0;
 var totalHoursData = options.series[0].data.map(function (item) {
-
   var diff = item.y[1] - item.y[0];
   sum = sum + diff;
   // var totalHours = diff > 0 ? diff : 24 + diff;
-  console.log(sum); // Calculate total hours
-  return {
-    x: item.x,
-    // totalHours: totalHours,
-  };
+ // Calculate total hours
+  return sum;
 });
+
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
