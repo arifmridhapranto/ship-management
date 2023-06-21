@@ -758,36 +758,64 @@ table {
     border-collapse: collapse;
     border-style: hidden;
 }
-tbody,
-td,
+
+/* td,
 tfoot,
 th,
-thead,
-tr{
+thead {
     border: none !important;
-}
+} */
 
 .modal-dialog .modal-body .table thead {
     background-color: var(--blue-color) !important;
     border-radius: 26px !important;
 }
+
 .table thead tr {
     border-radius: 26px !important;
 }
-.table thead tr th:first-child{
-border-radius: 6px 0px 0px 6px;;
+
+.table thead tr th:first-child {
+    border-radius: 6px 0px 0px 6px;
+    ;
 }
+
 .table thead tr th:last-child {
     border-radius: 0px 6px 6px 0px;
     ;
 }
 
-.modal-dialog .modal-body .table thead tr {
+/* .modal-dialog .modal-body .table thead tr {
     border-radius: 26px !important;
+} */
+.modal-dialog .modal-body .table tbody tr {
+    border-bottom: 1px solid red !important;
+}
+
+
+.modal-dialog .modal-body .table tbody td {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140.02%;
+    color: #838383;
+}
+
+.modal-dialog .modal-body .table tbody th {
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140.02%;
+    color: var(--table-time);
+    padding: 20px 20px;
 }
 
 .modal-dialog .modal-body .table thead th {
     background-color: transparent;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--white);
+    padding: 20px 20px;
 }
 
 .modal-dialog .modal-body .table tbody {
@@ -802,11 +830,12 @@ body .c-datepicker-picker {
 
 
 @media print {
-    .custom-btn{
+    .custom-btn {
         display: none;
     }
-        .print-btn {
-            display: none;
-        }
+
+    .print-btn {
+        display: none;
+    }
 
 }
