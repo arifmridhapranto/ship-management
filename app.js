@@ -300,10 +300,27 @@ chart.render();
 //   printWindow.close();
 // }
 
-
 $(document).ready(function () {
-  $("#printButton").click(function () {
+  $(".breakdown-chart #printButton").click(function () {
     var printContents = $("#print-content").html();
+    var originalContents = $("body").html();
+
+    $("body").empty().html(printContents);
+    window.print();
+    $("body").html(originalContents);
+  });
+
+  $("#Total-repair #printButton").click(function () {
+    var printContents = $("#Total-repair-content").html();
+    var originalContents = $("body").html();
+
+    $("body").empty().html(printContents);
+    window.print();
+    $("body").html(originalContents);
+  });
+
+  $("#Total-grabs #printButton").click(function () {
+    var printContents = $("#Total-grabs-content").html();
     var originalContents = $("body").html();
 
     $("body").empty().html(printContents);
