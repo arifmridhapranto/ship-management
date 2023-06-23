@@ -120,14 +120,6 @@ $(document).ready(function () {
     between: "month",
     shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
   });
-
-  // Change the position of the calendar dropdown
-  // $(".J-datepicker-range-day").on("click", function () {
-  //   $(".c-datepicker-date-range-picker").css({
-  //     // top: "50%", // Adjust the vertical position as needed
-  //     // left: "35%", // Adjust the horizontal position as needed
-  //   });
-  // });
 });
 
 var options = {
@@ -319,12 +311,28 @@ $(document).ready(function () {
     $("body").html(originalContents);
   });
 
-  $("#Total-grabs #printButton").click(function () {
+  $("#total-repair-button").click(function () {
     var printContents = $("#Total-grabs-content").html();
     var originalContents = $("body").html();
 
     $("body").empty().html(printContents);
     window.print();
     $("body").html(originalContents);
+  });
+
+
+
+});
+
+// navigation buttons
+
+$(document).ready(function () {
+  $("#sidebarCollapse").on("click", function () {
+    $("#sidebar").toggleClass("active");
+    $("#content").toggleClass("active");
+  });
+
+  $(".more-button,.body-overlay").on("click", function () {
+    $("#sidebar,.body-overlay").toggleClass("show-nav");
   });
 });
