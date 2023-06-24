@@ -211,9 +211,6 @@ var options = {
     position: "top",
     horizontalAlign: "left",
   },
-  // labels: {
-  //   // show:true,
-  // },
   tooltip: {
     enabled: true,
     grid: {
@@ -222,6 +219,9 @@ var options = {
       strokeDashArray: 0,
       position: "back",
       xaxis: {
+        formatter: function (value) {
+          return "X-Axis Label: " + value;
+        },
         lines: {
           show: true,
         },
@@ -239,6 +239,7 @@ var options = {
       },
     },
   },
+
   autoSelected: false,
 };
 
@@ -320,19 +321,17 @@ $(document).ready(function () {
     $("body").html(originalContents);
   });
 
-
-
-});
-
-// navigation buttons
-
-$(document).ready(function () {
   $("#sidebarCollapse").on("click", function () {
     $("#sidebar").toggleClass("active");
     $("#content").toggleClass("active");
+    console.log("Sidebar");
   });
 
   $(".more-button,.body-overlay").on("click", function () {
     $("#sidebar,.body-overlay").toggleClass("show-nav");
+        console.log("Sidebar 2");
   });
 });
+
+// navigation buttons
+
