@@ -164,6 +164,29 @@ var options = {
     height: 300,
     type: "rangeBar",
     zoom: false,
+    events: {
+      click: function (event, chartContext, config) {
+        // console.log("pranto Mridha");
+      },
+      xAxisLabelClick: function (event, chartContext, config) {
+        console.log("xAxis-level click");
+      },
+      dataPointSelection: function (event, chartContext, config) {
+        var modal = document.getElementById("graphModal");
+        modal.style.display = "block";
+
+        // Add event listener to close the modal
+        // var closeBtn = modal.querySelector(".close");
+        // closeBtn.addEventListener("click", function () {
+        //   modal.style.display = "none";
+        // });
+        window.addEventListener("click", function (event) {
+          if (event.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+      },
+    },
   },
 
   plotOptions: {
@@ -320,18 +343,99 @@ $(document).ready(function () {
     window.print();
     $("body").html(originalContents);
   });
-
-  $("#sidebarCollapse").on("click", function () {
-    $("#sidebar").toggleClass("active");
-    $("#content").toggleClass("active");
-    console.log("Sidebar");
-  });
-
-  $(".more-button,.body-overlay").on("click", function () {
-    $("#sidebar,.body-overlay").toggleClass("show-nav");
-        console.log("Sidebar 2");
-  });
 });
 
 // navigation buttons
 
+$(document).ready(function () {
+  // $("#sidebarCollapse").on("click", function () {
+  //   $("#sidebar").toggleClass("active");
+  //   $("#content").toggleClass("active");
+  //   console.log("sidebar 1");
+  // });
+
+  $(".more-button, .body-overlay").on("click", function () {
+    $("#sidebar, .body-overlay").toggleClass("show-nav");
+  });
+});
+
+// modal chart
+
+var options = {
+  // HoistingWire: [
+  //   {
+  //     data: [0.3, 2, 1, 0.8],
+  //   },
+  // ],
+  // LuffingWire: [
+  //   {
+  //     data: [0.5, 1.3, 2, 1],
+  //   },
+  // ],
+
+  series: [
+    {
+      name: "Hoisting Wire",
+      data: [0.3, 2, 1, 0.8],
+    },
+    {
+      name: "Luffing Wire",
+      data: [0.5, 1.3, 2, 1],
+    },
+  ],
+  tooltip: {
+    enabled: true,
+    formatter: function (val, opts) {
+      // Modify the tooltip content here
+      return "Custom Tooltip: " + val;
+    },
+  },
+  chart: {
+    height: 350,
+    type: "bar",
+    stacked: true,
+    // stackType: '100%',
+    events: {
+      click: function (chart, w, e) {
+        // console.log(chart, w, e)
+      },
+    },
+  },
+  // colors: colors,
+  plotOptions: {
+    bar: {
+      columnWidth: "60%",
+      distributed: true,
+    },
+  },
+  dataLabels: {
+    enabled: true,
+  },
+  legend: {
+    show: false,
+  },
+  xaxis: {
+    categories: ["Crane 1", "Crane 2", "Crane 3", "Crane 4"],
+    labels: {
+      style: {
+        // colors: colors,
+        fontSize: "12px",
+      },
+    },
+  },
+  yaxis: {
+    categories: ["30Min", "1hr", "1.30hr", "2hr"],
+    labels: {
+      style: {
+        // colors: colors,
+        fontSize: "12px",
+      },
+      // title: {
+      //   text: "hrs",
+      // },
+    },
+  },
+};
+
+var modalChart = new ApexCharts(document.querySelector("#modalChart"), options);
+modalChart.render();
