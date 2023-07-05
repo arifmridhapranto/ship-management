@@ -73,9 +73,7 @@ body {
   padding: 0px;
 }
 
-.main-container {
-  /* display: flex; */
-}
+
 
 .main-section {
   width: calc(100% - 350px);
@@ -95,11 +93,6 @@ body {
 
 /* navigation section style  */
 
-.navigation-section {
-  /* width: 350px;
-  height: 100vh; */
-  /* overflow-y: scroll; */
-}
 
 #sidebar {
   position: fixed;
@@ -1050,6 +1043,7 @@ body {
   font-weight: 600;
   color: var(--dark-color);
 }
+
 #graphModal .modal-dialog {
   max-width: 40vw;
   width: 40vw;
@@ -1164,11 +1158,11 @@ body {
     transform: translate(-25%, -50%) !important;
   }
 
-    #graphModal .modal-dialog {
-      max-width: 60vw;
-      width: 60vw;
-      margin: auto;
-    }
+  #graphModal .modal-dialog {
+    max-width: 60vw;
+    width: 60vw;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1259,11 +1253,12 @@ body {
   table {
     table-layout: auto !important;
   }
-    #graphModal .modal-dialog {
-      max-width: 80vw;
-      width: 80vw;
-      margin: auto;
-    }
+
+  #graphModal .modal-dialog {
+    max-width: 80vw;
+    width: 80vw;
+    margin: auto;
+  }
 }
 
 .modal-dialog {
