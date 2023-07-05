@@ -641,25 +641,28 @@ body {
   transition: 0.3s linear;
 }
 
-.breakdown-box:hover {
+.breakdown-box:hover,
+.breakdown-box.active {
   background-color: var(--blue-color);
   cursor: pointer;
 }
 
 .breakdown-box:hover .breakDown-box-heading,
-.breakdown-box:hover .breakDown-box-subHeading {
+.breakdown-box:hover .breakDown-box-subHeading,
+.breakdown-box.active .breakDown-box-heading,
+.breakdown-box.active .breakDown-box-subHeading{
   color: var(--box-hover-title-color);
 }
 
-.breakdown-box:hover .breakDown-box-hours {
+.breakdown-box:hover .breakDown-box-hours, .breakdown-box.active .breakDown-box-hours {
   color: var(--white);
 }
 
-.breakdown-box:hover .icon {
+.breakdown-box:hover .icon , .breakdown-box.active .icon{
   background-color: var(--icon-hover-background);
 }
 
-.breakdown-box:hover .icon svg {
+.breakdown-box:hover .icon svg , .breakdown-box.active .icon svg{
   fill: var(--white);
 }
 
@@ -1408,6 +1411,7 @@ body .c-datepicker-picker {
 .svg {
   cursor: pointer;
 }
+
 
 @media print {
   .custom-btn {

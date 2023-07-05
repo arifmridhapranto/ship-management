@@ -132,38 +132,47 @@ $(document).ready(function () {
           {
             x: "M.V Jawad",
             y: [3, 7],
+            gradientColor: ["red", "yellow"],
           },
           {
             x: "M.V Nasir",
             y: [9, 11],
+            gradientColor: ["green", "cyan"],
           },
           {
             x: "M.V Awal",
             y: [16, 23],
+            gradientColor: ["blue", "purple"],
           },
           {
             x: "M.V Sahin",
             y: [18, 19],
+            gradientColor: ["red", "yellow"],
           },
           {
             x: "M.V Jawad",
             y: [9, 13],
+            gradientColor: ["red", "yellow"],
           },
           {
             x: "M.V Nasir",
             y: [15, 18],
+            gradientColor: ["green", "cyan"],
           },
           {
             x: "M.V Sahin",
             y: [7, 14],
+            gradientColor: ["red", "yellow"],
           },
         ],
       },
     ],
     chart: {
+      // foreColor: "#fff",
       toolbar: {
         show: false,
       },
+
       height: 300,
       type: "rangeBar",
       zoom: false,
@@ -194,6 +203,14 @@ $(document).ready(function () {
         barHeight: "60%",
         borderRadius: "15",
         distributed: true,
+        style: {
+          color: "#FFF",
+        },
+        dataLabels: {
+          style: {
+            color: "#FFF",
+          },
+        },
       },
     },
     xaxis: {
@@ -210,24 +227,29 @@ $(document).ready(function () {
       },
       offsetX: 0,
       offsetY: 0,
-      style: {
-        colors: "#000000",
-        background: {
-          enabled: true,
-          foreColor: "#000000",
-          padding: 8,
-          borderRadius: 50,
-          borderWidth: 1,
-          borderColor: "#000000",
-        },
-      },
     },
     stroke: {
-      width: 1,
+      width: 0,
     },
     fill: {
-      type: "solid",
-      opacity: 0.6,
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.5,
+        opacityTo: 1,
+        colorStops: [
+          {
+            offset: 0,
+            color: "#F46152  ",
+            opacity: 1,
+          },
+          {
+            offset: 100,
+            color: "#D33728 ",
+            opacity: 1,
+          },
+        ],
+      },
     },
     legend: {
       position: "top",
@@ -261,7 +283,20 @@ $(document).ready(function () {
         },
       },
     },
-
+    // states: {
+    //   normal: {
+    //     filter: {
+    //       type: "none",
+    //       value: 0,
+    //     },
+    //   },
+    //   hover: {
+    //     filter: {
+    //       type: "darken",
+    //       value: 0.15,
+    //     },
+    //   },
+    // },
     autoSelected: false,
   };
 
@@ -284,7 +319,7 @@ $(document).ready(function () {
   craneChart.render();
 });
 
-// Generate Chart Data
+// Generator Chart Data
 
 $(document).ready(function () {
   let options = {
@@ -326,6 +361,7 @@ $(document).ready(function () {
       toolbar: {
         show: false,
       },
+      // foreColor:"#FFF",
       height: 300,
       type: "rangeBar",
       zoom: false,
@@ -372,24 +408,40 @@ $(document).ready(function () {
       },
       offsetX: 0,
       offsetY: 0,
-      style: {
-        colors: "#000000",
-        background: {
-          enabled: true,
-          foreColor: "#000000",
-          padding: 8,
-          borderRadius: 50,
-          borderWidth: 1,
-          borderColor: "#000000",
-        },
-      },
+      // style: {
+      //   colors: "#ffffff",
+      //   background: {
+      //     enabled: true,
+      //     // foreColor: "#000000",
+      //     padding: 8,
+      //     borderRadius: 50,
+      //     borderWidth: 1,
+      //     borderColor: "#ffffff",
+      //   },
+      // },
     },
     stroke: {
-      width: 1,
+      width: 0,
     },
     fill: {
-      type: "solid",
-      opacity: 0.6,
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.5,
+        opacityTo: 1,
+        colorStops: [
+          {
+            offset: 0,
+            color: "#F46152  ",
+            opacity: 1,
+          },
+          {
+            offset: 100,
+            color: "#D33728 ",
+            opacity: 1,
+          },
+        ],
+      },
     },
     legend: {
       position: "top",
@@ -534,24 +586,29 @@ $(document).ready(function () {
       },
       offsetX: 0,
       offsetY: 0,
-      style: {
-        colors: "#000000",
-        background: {
-          enabled: true,
-          foreColor: "#000000",
-          padding: 8,
-          borderRadius: 50,
-          borderWidth: 1,
-          borderColor: "#000000",
-        },
-      },
     },
     stroke: {
-      width: 1,
+      width: 0,
     },
     fill: {
-      type: "solid",
-      opacity: 0.6,
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.5,
+        opacityTo: 1,
+        colorStops: [
+          {
+            offset: 0,
+            color: "#F46152  ",
+            opacity: 1,
+          },
+          {
+            offset: 100,
+            color: "#D33728 ",
+            opacity: 1,
+          },
+        ],
+      },
     },
     legend: {
       position: "top",
@@ -696,24 +753,29 @@ $(document).ready(function () {
       },
       offsetX: 0,
       offsetY: 0,
-      style: {
-        colors: "#000000",
-        background: {
-          enabled: true,
-          foreColor: "#000000",
-          padding: 8,
-          borderRadius: 50,
-          borderWidth: 1,
-          borderColor: "#000000",
-        },
-      },
     },
     stroke: {
-      width: 1,
+      width: 0,
     },
     fill: {
-      type: "solid",
-      opacity: 0.6,
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.5,
+        opacityTo: 1,
+        colorStops: [
+          {
+            offset: 0,
+            color: "#F46152  ",
+            opacity: 1,
+          },
+          {
+            offset: 100,
+            color: "#D33728 ",
+            opacity: 1,
+          },
+        ],
+      },
     },
     legend: {
       position: "top",
