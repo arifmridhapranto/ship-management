@@ -100,6 +100,8 @@ $(document).ready(function () {
     ],
   };
 
+
+
   $(".J-datepicker-range-day").datePicker({
     language: "en",
     hasShortcut: true,
@@ -108,6 +110,16 @@ $(document).ready(function () {
     isRange: true,
     between: "month",
     shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
+    hide: function () {
+    const start = $(this).Val();
+      console.log(start);
+      console.log("its working 2");
+    },
+    show: function () {
+      // const start = $(this).val();
+      // console.log(start);
+      console.log("its working");
+    },
   });
 
   $(".custom-date-breakdown").datePicker({
@@ -119,8 +131,40 @@ $(document).ready(function () {
     isRange: true,
     between: "month",
     shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
+    hide: function () {
+      const start = $(".start").val();
+      const end = $(".end").val();
+
+
+      let startDateShow = document.getElementById("SDate");
+      let endDateShow = document.getElementById("EDate");
+      console.log(startDateShow, endDateShow);
+      startDateShow.innerText = start.toString();
+      endDateShow.innerText = end.toString();
+      console.log(start, end);
+      var modal = document.getElementById("crane-weekly-chart");
+          modal.style.display = "block";
+
+          // Add event listener to close the modal
+          // var closeBtn = modal.querySelector(".close");
+          // closeBtn.addEventListener("click", function () {
+          //   modal.style.display = "none";
+          // });
+      window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      })
+    },
+    show: function () {
+      // const start = $(this).val();
+      // console.log(start);
+      console.log("its working");
+    },
   });
 });
+
+
 
 // Crane Chart data
 
@@ -369,7 +413,7 @@ $(document).ready(function () {
         click: function (event, chartContext, config) {},
         xAxisLabelClick: function (event, chartContext, config) {},
         dataPointSelection: function (event, chartContext, config) {
-          let modal = document.getElementById("graphModal");
+          let modal = document.getElementById("generatorModal");
           modal.style.display = "block";
 
           // Add event listener to close the modal
@@ -547,7 +591,7 @@ $(document).ready(function () {
         click: function (event, chartContext, config) {},
         xAxisLabelClick: function (event, chartContext, config) {},
         dataPointSelection: function (event, chartContext, config) {
-          let modal = document.getElementById("graphModal");
+          let modal = document.getElementById("mainEngineModal");
           modal.style.display = "block";
 
           // Add event listener to close the modal
@@ -714,7 +758,7 @@ $(document).ready(function () {
         click: function (event, chartContext, config) {},
         xAxisLabelClick: function (event, chartContext, config) {},
         dataPointSelection: function (event, chartContext, config) {
-          let modal = document.getElementById("graphModal");
+          let modal = document.getElementById("otherChartModal");
           modal.style.display = "block";
 
           // Add event listener to close the modal
@@ -871,11 +915,12 @@ $(document).ready(function () {
   $(".breakdown-chart #printButton").click(function () {
     var printContents = $("#print-content").html();
     var originalContents = $("body").html();
-
     $("body").empty().html(printContents);
     window.print();
     $("body").html(originalContents);
   });
+
+
 
   $("#Total-repair #printButton").click(function () {
     var printContents = $("#Total-repair-content").html();
@@ -885,6 +930,9 @@ $(document).ready(function () {
     window.print();
     $("body").html(originalContents);
   });
+
+
+
 
   $("#total-repair-button").click(function () {
     var printContents = $("#Total-grabs-content").html();
@@ -896,6 +944,10 @@ $(document).ready(function () {
   });
 });
 
+
+
+
+
 // navigation buttons
 
 $(document).ready(function () {
@@ -904,89 +956,464 @@ $(document).ready(function () {
   });
 });
 
-// modal chart
 
-var options = {
-  // HoistingWire: [
-  //   {
-  //     data: [0.3, 2, 1, 0.8],
-  //   },
-  // ],
-  // LuffingWire: [
-  //   {
-  //     data: [0.5, 1.3, 2, 1],
-  //   },
-  // ],
 
-  series: [
-    {
-      name: "Hoisting Wire",
-      data: [0.3, 2, 1, 0.8],
+//Crane Chart modal
+$(document).ready(function () {
+  var options = {
+    // HoistingWire: [
+    //   {
+    //     data: [0.3, 2, 1, 0.8],
+    //   },
+    // ],
+    // LuffingWire: [
+    //   {
+    //     data: [0.5, 1.3, 2, 1],
+    //   },
+    // ],
+
+    series: [
+      {
+        name: "Hoisting Wire",
+        data: [0.3, 2, 1, 0.8],
+      },
+      {
+        name: "Luffing Wire",
+        data: [0.5, 1.3, 2, 1],
+      },
+    ],
+    tooltip: {
+      enabled: true,
+      formatter: function (val, opts) {
+        // Modify the tooltip content here
+        return "Custom Tooltip: " + val;
+      },
     },
-    {
-      name: "Luffing Wire",
-      data: [0.5, 1.3, 2, 1],
+    chart: {
+      height: 350,
+      type: "bar",
+      stacked: true,
+      // stackType: '100%',
+      events: {
+        click: function (chart, w, e) { },
+      },
     },
-  ],
-  tooltip: {
-    enabled: true,
-    formatter: function (val, opts) {
-      // Modify the tooltip content here
-      return "Custom Tooltip: " + val;
-    },
-  },
-  chart: {
-    height: 350,
-    type: "bar",
-    stacked: true,
-    // stackType: '100%',
-    events: {
-      click: function (chart, w, e) {},
-    },
-  },
-  plotOptions: {
-    bar: {
-      columnWidth: "60%",
-      distributed: true,
+    plotOptions: {
+      bar: {
+        columnWidth: "60%",
+        distributed: true,
+      },
+      dataLabels: {
+        position: "top", // Position the labels above the columns
+        formatter: function (val, opts) {
+          const colors = ["#ff0000", "#00ff00", "#0000ff"]; // Array of colors for each data point
+          const colorIndex = opts.dataPointIndex; // Get the index of the data point
+          opts.w.config.chart.colors = colors; // Assign the colors array to the chart configuration
+          return val; // Return the original value for the label
+        },
+      },
     },
     dataLabels: {
-      position: "top", // Position the labels above the columns
-      formatter: function (val, opts) {
-        const colors = ["#ff0000", "#00ff00", "#0000ff"]; // Array of colors for each data point
-        const colorIndex = opts.dataPointIndex; // Get the index of the data point
-        opts.w.config.chart.colors = colors; // Assign the colors array to the chart configuration
-        return val; // Return the original value for the label
+      enabled: true,
+    },
+    legend: {
+      show: false,
+    },
+    xaxis: {
+      categories: ["Crane 1", "Crane 2", "Crane 3", "Crane 4"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
       },
     },
-  },
-  dataLabels: {
-    enabled: true,
-  },
-  legend: {
-    show: false,
-  },
-  xaxis: {
-    categories: ["Crane 1", "Crane 2", "Crane 3", "Crane 4"],
-    labels: {
-      style: {
-        // colors: colors,
-        fontSize: "12px",
+    yaxis: {
+      categories: ["30Min", "1hr", "1.30hr", "2hr"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+        // title: {
+        //   text: "hrs",
+        // },
       },
     },
-  },
-  yaxis: {
-    categories: ["30Min", "1hr", "1.30hr", "2hr"],
-    labels: {
-      style: {
-        // colors: colors,
-        fontSize: "12px",
-      },
-      // title: {
-      //   text: "hrs",
-      // },
-    },
-  },
-};
+  };
 
-var modalChart = new ApexCharts(document.querySelector("#modalChart"), options);
-modalChart.render();
+  var modalChart = new ApexCharts(document.querySelector("#modalChart"), options);
+  modalChart.render();
+});
+
+//Generator Chart Modal
+$(document).ready(function () {
+  var options = {
+    // HoistingWire: [
+    //   {
+    //     data: [0.3, 2, 1, 0.8],
+    //   },
+    // ],
+    // LuffingWire: [
+    //   {
+    //     data: [0.5, 1.3, 2, 1],
+    //   },
+    // ],
+
+    series: [
+      {
+        name: "Hoisting Wire",
+        data: [0.3, 2, 1, 0.8],
+      },
+      {
+        name: "Luffing Wire",
+        data: [0.5, 1.3, 2, 1],
+      },
+    ],
+    tooltip: {
+      enabled: true,
+      formatter: function (val, opts) {
+        // Modify the tooltip content here
+        return "Custom Tooltip: " + val;
+      },
+    },
+    chart: {
+      height: 350,
+      type: "bar",
+      stacked: true,
+      // stackType: '100%',
+      events: {
+        click: function (chart, w, e) { },
+      },
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "60%",
+        distributed: true,
+      },
+      dataLabels: {
+        position: "top", // Position the labels above the columns
+        formatter: function (val, opts) {
+          const colors = ["#ff0000", "#00ff00", "#0000ff"]; // Array of colors for each data point
+          const colorIndex = opts.dataPointIndex; // Get the index of the data point
+          opts.w.config.chart.colors = colors; // Assign the colors array to the chart configuration
+          return val; // Return the original value for the label
+        },
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      show: false,
+    },
+    xaxis: {
+      categories: ["Crane 1", "Crane 2", "Crane 3", "Crane 4"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+      },
+    },
+    yaxis: {
+      categories: ["30Min", "1hr", "1.30hr", "2hr"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+        // title: {
+        //   text: "hrs",
+        // },
+      },
+    },
+  };
+
+  var innerGeneratorModal = new ApexCharts(
+    document.querySelector("#innerGeneratorModal"),
+    options
+  );
+  innerGeneratorModal.render();
+});
+
+
+//Main Engine Chart Modal
+$(document).ready(function () {
+  var options = {
+    // HoistingWire: [
+    //   {
+    //     data: [0.3, 2, 1, 0.8],
+    //   },
+    // ],
+    // LuffingWire: [
+    //   {
+    //     data: [0.5, 1.3, 2, 1],
+    //   },
+    // ],
+
+    series: [
+      {
+        name: "Hoisting Wire",
+        data: [0.3, 2, 1, 0.8],
+      },
+      {
+        name: "Luffing Wire",
+        data: [0.5, 1.3, 2, 1],
+      },
+    ],
+    tooltip: {
+      enabled: true,
+      formatter: function (val, opts) {
+        // Modify the tooltip content here
+        return "Custom Tooltip: " + val;
+      },
+    },
+    chart: {
+      height: 350,
+      type: "bar",
+      stacked: true,
+      // stackType: '100%',
+      events: {
+        click: function (chart, w, e) { },
+      },
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "60%",
+        distributed: true,
+      },
+      dataLabels: {
+        position: "top", // Position the labels above the columns
+        formatter: function (val, opts) {
+          const colors = ["#ff0000", "#00ff00", "#0000ff"]; // Array of colors for each data point
+          const colorIndex = opts.dataPointIndex; // Get the index of the data point
+          opts.w.config.chart.colors = colors; // Assign the colors array to the chart configuration
+          return val; // Return the original value for the label
+        },
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      show: false,
+    },
+    xaxis: {
+      categories: ["Crane 1", "Crane 2", "Crane 3", "Crane 4"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+      },
+    },
+    yaxis: {
+      categories: ["30Min", "1hr", "1.30hr", "2hr"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+        // title: {
+        //   text: "hrs",
+        // },
+      },
+    },
+  };
+
+  var innerMainEngineModal = new ApexCharts(
+    document.querySelector("#innerMainEngineModal"),
+    options
+  );
+  innerMainEngineModal.render();
+});
+
+
+//Other Chart Modal
+$(document).ready(function () {
+  var options = {
+    // HoistingWire: [
+    //   {
+    //     data: [0.3, 2, 1, 0.8],
+    //   },
+    // ],
+    // LuffingWire: [
+    //   {
+    //     data: [0.5, 1.3, 2, 1],
+    //   },
+    // ],
+
+    series: [
+      {
+        name: "Hoisting Wire",
+        data: [0.3, 2, 1, 0.8],
+      },
+      {
+        name: "Luffing Wire",
+        data: [0.5, 1.3, 2, 1],
+      },
+    ],
+    tooltip: {
+      enabled: true,
+      formatter: function (val, opts) {
+        // Modify the tooltip content here
+        return "Custom Tooltip: " + val;
+      },
+    },
+    chart: {
+      height: 350,
+      type: "bar",
+      stacked: true,
+      // stackType: '100%',
+      events: {
+        click: function (chart, w, e) { },
+      },
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "60%",
+        distributed: true,
+      },
+      dataLabels: {
+        position: "top", // Position the labels above the columns
+        formatter: function (val, opts) {
+          const colors = ["#ff0000", "#00ff00", "#0000ff"]; // Array of colors for each data point
+          const colorIndex = opts.dataPointIndex; // Get the index of the data point
+          opts.w.config.chart.colors = colors; // Assign the colors array to the chart configuration
+          return val; // Return the original value for the label
+        },
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      show: false,
+    },
+    xaxis: {
+      categories: ["Crane 1", "Crane 2", "Crane 3", "Crane 4"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+      },
+    },
+    yaxis: {
+      categories: ["30Min", "1hr", "1.30hr", "2hr"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+        // title: {
+        //   text: "hrs",
+        // },
+      },
+    },
+  };
+
+  var innerOtherChart = new ApexCharts(
+    document.querySelector("#innerOtherChart"),
+    options
+  );
+  innerOtherChart.render();
+});
+
+
+
+
+//weekly or selected date Chart Modal
+$(document).ready(function () {
+  var options = {
+    // HoistingWire: [
+    //   {
+    //     data: [0.3, 2, 1, 0.8],
+    //   },
+    // ],
+    // LuffingWire: [
+    //   {
+    //     data: [0.5, 1.3, 2, 1],
+    //   },
+    // ],
+
+    series: [
+      {
+        name: "Hoisting Wire",
+        data: [0.3, 2, 1, 0.8],
+      },
+      {
+        name: "Luffing Wire",
+        data: [0.5, 1.3, 2, 1],
+      },
+    ],
+    tooltip: {
+      enabled: true,
+      formatter: function (val, opts) {
+        // Modify the tooltip content here
+        return "Custom Tooltip: " + val;
+      },
+    },
+    chart: {
+      height: 350,
+      type: "bar",
+      stacked: true,
+      // stackType: '100%',
+      events: {
+        click: function (chart, w, e) { },
+      },
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "60%",
+        distributed: true,
+      },
+      dataLabels: {
+        position: "top", // Position the labels above the columns
+        formatter: function (val, opts) {
+          const colors = ["#ff0000", "#00ff00", "#0000ff"]; // Array of colors for each data point
+          const colorIndex = opts.dataPointIndex; // Get the index of the data point
+          opts.w.config.chart.colors = colors; // Assign the colors array to the chart configuration
+          return val; // Return the original value for the label
+        },
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      show: false,
+    },
+    xaxis: {
+      categories: ["MV Sahin", " MV Awal", "Mv Nasir", "MV Jawad"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+      },
+    },
+    yaxis: {
+      categories: ["30Min", "1hr", "1.30hr", "2hr"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+        // title: {
+        //   text: "hrs",
+        // },
+      },
+    },
+  };
+
+  var weeklyChart = new ApexCharts(
+    document.querySelector("#weeklyChart"),
+    options
+  );
+  weeklyChart.render();
+});
+
+
+

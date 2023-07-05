@@ -1047,10 +1047,15 @@ body {
   color: var(--dark-color);
 }
 
-#graphModal .modal-dialog {
+#graphModal .modal-dialog, #generatorModal .modal-dialog, #mainEngineModal .modal-dialog, #otherChartModal .modal-dialog{
   max-width: 40vw;
   width: 40vw;
   margin: auto;
+}
+#myModal2 .modal-dialog , #myModal3 .modal-dialog , #myModal4 .modal-dialog{
+  max-width: 50vw;
+    width: 50vw;
+    margin: auto;
 }
 
 @media screen and (max-width: 1440px) {
@@ -1119,6 +1124,13 @@ body {
   .life-history .header-box {
     flex-direction: column;
   }
+#myModal2 .modal-dialog,
+#myModal3 .modal-dialog,
+#myModal4 .modal-dialog {
+      max-width: 65vw;
+      width: 65vw;
+      margin: auto;
+    }
 }
 
 @media screen and (max-width: 991px) {
@@ -1161,11 +1173,21 @@ body {
     transform: translate(-25%, -50%) !important;
   }
 
-  #graphModal .modal-dialog {
+#graphModal .modal-dialog,
+#generatorModal .modal-dialog,
+#mainEngineModal .modal-dialog,
+#otherChartModal .modal-dialog {
     max-width: 60vw;
     width: 60vw;
     margin: auto;
   }
+#myModal2 .modal-dialog,
+#myModal3 .modal-dialog,
+#myModal4 .modal-dialog {
+      max-width: 80vw;
+      width: 80vw;
+      margin: auto;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -1257,11 +1279,21 @@ body {
     table-layout: auto !important;
   }
 
-  #graphModal .modal-dialog {
+#graphModal .modal-dialog,
+#generatorModal .modal-dialog,
+#mainEngineModal .modal-dialog,
+#otherChartModal .modal-dialog {
     max-width: 80vw;
     width: 80vw;
     margin: auto;
   }
+#myModal2 .modal-dialog,
+#myModal3 .modal-dialog,
+#myModal4 .modal-dialog {
+      max-width: 90vw;
+      width: 90vw;
+      margin: auto;
+    }
 }
 
 .modal-dialog {

@@ -462,9 +462,8 @@
                 <section class="container">
                     <h1 class="section-heading mb-4">Breakdown History</h1>
                     <div class="breakdown-container" id="myTab" role="tablist">
-                        <div class="breakdown-box active" id="cranes" data-bs-toggle="tab"
-                            data-bs-target="#cranes-tab" type="button" role="tab" aria-controls="cranes-tab"
-                            aria-selected="true">
+                        <div class="breakdown-box active" id="cranes" data-bs-toggle="tab" data-bs-target="#cranes-tab"
+                            type="button" role="tab" aria-controls="cranes-tab" aria-selected="true">
                             <div class="text">
                                 <h3 class="breakDown-box-heading mb-4">Cranes</h3>
                                 <h4 class="breakDown-box-hours mb-3">16:00 Hours</h4>
@@ -521,8 +520,8 @@
                             </div>
                         </div>
                         <div class="breakdown-box" id="generator-tab" data-bs-toggle="tab"
-                            data-bs-target="#generator-tab-content" type="button" role="tab" aria-controls="generator-tab-content"
-                            aria-selected="false">
+                            data-bs-target="#generator-tab-content" type="button" role="tab"
+                            aria-controls="generator-tab-content" aria-selected="false">
                             <div class="text">
                                 <h3 class="breakDown-box-heading mb-4">Generator</h3>
                                 <h4 class="breakDown-box-hours mb-3">08:45 Minutes</h4>
@@ -581,8 +580,8 @@
                             </div>
                         </div>
                         <div class="breakdown-box" id="main-engine-tab" data-bs-toggle="tab"
-                            data-bs-target="#main-engine-content" type="button" role="tab" aria-controls="main-engine-content"
-                            aria-selected="false">
+                            data-bs-target="#main-engine-content" type="button" role="tab"
+                            aria-controls="main-engine-content" aria-selected="false">
                             <div class="text">
                                 <h3 class="breakDown-box-heading mb-4">Main Engine</h3>
                                 <h4 class="breakDown-box-hours mb-3">12:00 Hours</h4>
@@ -641,8 +640,8 @@
                             </div>
                         </div>
                         <div class="breakdown-box" id="other-tab" data-bs-toggle="tab"
-                            data-bs-target="#other-tab-content" type="button" role="tab" aria-controls="other-tab-content"
-                            aria-selected="false">
+                            data-bs-target="#other-tab-content" type="button" role="tab"
+                            aria-controls="other-tab-content" aria-selected="false">
                             <div class="text">
                                 <h3 class="breakDown-box-heading mb-4">Others</h3>
                                 <h4 class="breakDown-box-hours mb-3">06:30 Hours</h4>
@@ -702,8 +701,8 @@
                         </div>
                     </div>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="cranes-tab" role="tabpanel"
-                            aria-labelledby="cranes" tabindex="0">
+                        <div class="tab-pane fade show active" id="cranes-tab" role="tabpanel" aria-labelledby="cranes"
+                            tabindex="0">
                             <section class="breakdown-chart my-4">
                                 <div class="header-box">
                                     <h2 class="container-heading text-start">Cranes - Breakdown History</h2>
@@ -715,11 +714,11 @@
                                             <div class="c-datepicker-date-editor custom-date-breakdown mt10">
                                                 <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
                                                 <input placeholder="Start" name=""
-                                                    class="c-datepicker-data-input only-date" value=""
+                                                    class="c-datepicker-data-input start only-date" value=""
                                                     data-listener-added_5167ebe7="true">
                                                 <span class="c-datepicker-range-separator">-</span>
                                                 <input placeholder="End" name=""
-                                                    class="c-datepicker-data-input only-date" value="">
+                                                    class="c-datepicker-data-input end only-date" value="">
                                             </div>
                                         </div>
                                         <div class="print-btn">
@@ -855,6 +854,30 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <div class="modal" id="crane-weekly-chart" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog modal-dialog-centered">
+                                        <div class="modal-content" id="print-content">
+                                            <!-- Modal content goes here -->
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                                <div class="d-flex column-gap-3">
+                                                    <span class="d-flex column-gap-2">Date From: <p id="SDate">abcd</p></span>
+                                                    <span class="d-flex column-gap-2">Date To: <p id="EDate">abcd</p></span>
+                                                </div>
+                                            </div>
+                                            <div class="modal-body">
+
+
+                                                <div id="weeklyChart">
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div id="craneChart">
                                 </div>
                                 <div class="modal" id="graphModal" tabindex="-1">
@@ -879,8 +902,8 @@
                                 </div>
                             </section>
                         </div>
-                        <div class="tab-pane fade" id="generator-tab-content" role="tabpanel" aria-labelledby="generator-tab"
-                            tabindex="0">
+                        <div class="tab-pane fade" id="generator-tab-content" role="tabpanel"
+                            aria-labelledby="generator-tab" tabindex="0">
                             <section class="breakdown-chart my-4">
                                 <div class="header-box">
                                     <h2 class="container-heading text-start">Generator - Breakdown History</h2>
@@ -901,7 +924,7 @@
                                         </div>
                                         <div class="print-btn">
                                             <button type="button" class="" data-bs-toggle="modal"
-                                                data-bs-target="#myModal">
+                                                data-bs-target="#myModal2">
                                                 <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -909,12 +932,12 @@
                                                         fill="#393939" />
                                                 </svg>
                                                 Print</button>
-                                            <div class="modal" id="myModal" tabindex="-1">
+                                            <div class="modal" id="myModal2" tabindex="-1">
                                                 <div class="modal-dialog modal-dialog modal-dialog-centered">
                                                     <div class="modal-content" id="print-content">
                                                         <!-- Modal content goes here -->
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                                            <h5 class="modal-title">Generator - Breakdown History</h5>
                                                             <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                                                         aria-label="Close"></button> -->
                                                             <div class="button-box d-flex">
@@ -940,10 +963,7 @@
                                                                         <tr>
                                                                             <th scope="col">Date</th>
                                                                             <th scope="col">Vessel Name</th>
-                                                                            <th scope="col">Crane 1</th>
-                                                                            <th scope="col">Crane 2</th>
-                                                                            <th scope="col">Crane 3</th>
-                                                                            <th scope="col">Crane 4</th>
+                                                                            <th scope="col">Generator</th>
                                                                             <th scope="col">Total Downtime</th>
                                                                         </tr>
                                                                     </thead>
@@ -951,76 +971,45 @@
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Generator 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Generator 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Generator 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Generator 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Generator 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Generator 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Generator 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <th scope="row">14 May</th>
-                                                                            <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>4.8 hrs</td>
-                                                                        </tr>
-
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -1034,18 +1023,18 @@
                                 <hr>
                                 <div id="generateChart">
                                 </div>
-                                <div class="modal" id="graphModal" tabindex="-1">
+                                <div class="modal" id="generatorModal" tabindex="-1">
                                     <div class="modal-dialog modal-dialog modal-dialog-centered">
                                         <div class="modal-content" id="print-content">
                                             <!-- Modal content goes here -->
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                                <h5 class="modal-title">Generator - Breakdown History</h5>
                                             </div>
                                             <div class="modal-body">
 
 
 
-                                                <div id="modalChart">
+                                                <div id="innerGeneratorModal">
                                                 </div>
 
 
@@ -1056,8 +1045,8 @@
                                 </div>
                             </section>
                         </div>
-                        <div class="tab-pane fade" id="main-engine-content" role="tabpanel" aria-labelledby="main-engine-tab"
-                            tabindex="0">
+                        <div class="tab-pane fade" id="main-engine-content" role="tabpanel"
+                            aria-labelledby="main-engine-tab" tabindex="0">
                             <section class="breakdown-chart my-4">
                                 <div class="header-box">
                                     <h2 class="container-heading text-start">Main Engine - Breakdown History</h2>
@@ -1078,7 +1067,7 @@
                                         </div>
                                         <div class="print-btn">
                                             <button type="button" class="" data-bs-toggle="modal"
-                                                data-bs-target="#myModal">
+                                                data-bs-target="#myModal3">
                                                 <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -1086,12 +1075,12 @@
                                                         fill="#393939" />
                                                 </svg>
                                                 Print</button>
-                                            <div class="modal" id="myModal" tabindex="-1">
+                                            <div class="modal" id="myModal3" tabindex="-1">
                                                 <div class="modal-dialog modal-dialog modal-dialog-centered">
                                                     <div class="modal-content" id="print-content">
                                                         <!-- Modal content goes here -->
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                                            <h5 class="modal-title">Main Engine - Breakdown History</h5>
                                                             <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                                                         aria-label="Close"></button> -->
                                                             <div class="button-box d-flex">
@@ -1117,10 +1106,7 @@
                                                                         <tr>
                                                                             <th scope="col">Date</th>
                                                                             <th scope="col">Vessel Name</th>
-                                                                            <th scope="col">Crane 1</th>
-                                                                            <th scope="col">Crane 2</th>
-                                                                            <th scope="col">Crane 3</th>
-                                                                            <th scope="col">Crane 4</th>
+                                                                            <th scope="col">Main Engine</th>
                                                                             <th scope="col">Total Downtime</th>
                                                                         </tr>
                                                                     </thead>
@@ -1128,76 +1114,45 @@
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>main Engine 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>main Engine 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>main Engine 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>main Engine 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>main Engine 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>main Engine 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>main Engine 1</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <th scope="row">14 May</th>
-                                                                            <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>4.8 hrs</td>
-                                                                        </tr>
-
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -1211,7 +1166,7 @@
                                 <hr>
                                 <div id="engineChart">
                                 </div>
-                                <div class="modal" id="graphModal" tabindex="-1">
+                                <div class="modal" id="mainEngineModal" tabindex="-1">
                                     <div class="modal-dialog modal-dialog modal-dialog-centered">
                                         <div class="modal-content" id="print-content">
                                             <!-- Modal content goes here -->
@@ -1222,7 +1177,7 @@
 
 
 
-                                                <div id="modalChart">
+                                                <div id="innerMainEngineModal">
                                                 </div>
 
 
@@ -1255,7 +1210,7 @@
                                         </div>
                                         <div class="print-btn">
                                             <button type="button" class="" data-bs-toggle="modal"
-                                                data-bs-target="#myModal">
+                                                data-bs-target="#myModal4">
                                                 <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -1263,12 +1218,12 @@
                                                         fill="#393939" />
                                                 </svg>
                                                 Print</button>
-                                            <div class="modal" id="myModal" tabindex="-1">
+                                            <div class="modal" id="myModal4" tabindex="-1">
                                                 <div class="modal-dialog modal-dialog modal-dialog-centered">
                                                     <div class="modal-content" id="print-content">
                                                         <!-- Modal content goes here -->
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                                            <h5 class="modal-title">Others - Breakdown History</h5>
                                                             <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                                                         aria-label="Close"></button> -->
                                                             <div class="button-box d-flex">
@@ -1294,10 +1249,7 @@
                                                                         <tr>
                                                                             <th scope="col">Date</th>
                                                                             <th scope="col">Vessel Name</th>
-                                                                            <th scope="col">Crane 1</th>
-                                                                            <th scope="col">Crane 2</th>
-                                                                            <th scope="col">Crane 3</th>
-                                                                            <th scope="col">Crane 4</th>
+                                                                            <th scope="col">Others</th>
                                                                             <th scope="col">Total Downtime</th>
                                                                         </tr>
                                                                     </thead>
@@ -1305,76 +1257,45 @@
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Propailar</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Propailar</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Propailar</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Propailar</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Propailar</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Propailar</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th scope="row">14 May</th>
                                                                             <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
+                                                                            <td>1.2 hrs <br>Propailar</td>
                                                                             <td>4.8 hrs</td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <th scope="row">14 May</th>
-                                                                            <th>MV Jawad </th>
-                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>3 hrs <br>(Oil Limitation)</td>
-                                                                            <td>NILL</td>
-                                                                            <td>4.8 hrs</td>
-                                                                        </tr>
-
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -1388,18 +1309,18 @@
                                 <hr>
                                 <div id="otherChart">
                                 </div>
-                                <div class="modal" id="graphModal" tabindex="-1">
+                                <div class="modal" id="otherChartModal" tabindex="-1">
                                     <div class="modal-dialog modal-dialog modal-dialog-centered">
                                         <div class="modal-content" id="print-content">
                                             <!-- Modal content goes here -->
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                                <h5 class="modal-title">Others - Breakdown History</h5>
                                             </div>
                                             <div class="modal-body">
 
 
 
-                                                <div id="modalChart">
+                                                <div id="innerOtherChart">
                                                 </div>
 
 
