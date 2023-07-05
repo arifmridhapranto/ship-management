@@ -461,8 +461,10 @@
                 </div>
                 <section class="container">
                     <h1 class="section-heading mb-4">Breakdown History</h1>
-                    <div class="breakdown-container">
-                        <div class="breakdown-box">
+                    <div class="breakdown-container" id="myTab" role="tablist">
+                        <div class="breakdown-box active" id="cranes" data-bs-toggle="tab"
+                            data-bs-target="#cranes-tab" type="button" role="tab" aria-controls="cranes-tab"
+                            aria-selected="true">
                             <div class="text">
                                 <h3 class="breakDown-box-heading mb-4">Cranes</h3>
                                 <h4 class="breakDown-box-hours mb-3">16:00 Hours</h4>
@@ -518,7 +520,9 @@
 
                             </div>
                         </div>
-                        <div class="breakdown-box">
+                        <div class="breakdown-box" id="generator-tab" data-bs-toggle="tab"
+                            data-bs-target="#generator-tab-content" type="button" role="tab" aria-controls="generator-tab-content"
+                            aria-selected="false">
                             <div class="text">
                                 <h3 class="breakDown-box-heading mb-4">Generator</h3>
                                 <h4 class="breakDown-box-hours mb-3">08:45 Minutes</h4>
@@ -576,7 +580,9 @@
 
                             </div>
                         </div>
-                        <div class="breakdown-box">
+                        <div class="breakdown-box" id="main-engine-tab" data-bs-toggle="tab"
+                            data-bs-target="#main-engine-content" type="button" role="tab" aria-controls="main-engine-content"
+                            aria-selected="false">
                             <div class="text">
                                 <h3 class="breakDown-box-heading mb-4">Main Engine</h3>
                                 <h4 class="breakDown-box-hours mb-3">12:00 Hours</h4>
@@ -634,7 +640,9 @@
 
                             </div>
                         </div>
-                        <div class="breakdown-box">
+                        <div class="breakdown-box" id="other-tab" data-bs-toggle="tab"
+                            data-bs-target="#other-tab-content" type="button" role="tab" aria-controls="other-tab-content"
+                            aria-selected="false">
                             <div class="text">
                                 <h3 class="breakDown-box-heading mb-4">Others</h3>
                                 <h4 class="breakDown-box-hours mb-3">06:30 Hours</h4>
@@ -693,176 +701,716 @@
                             </div>
                         </div>
                     </div>
-                    <section class="breakdown-chart my-4">
-                        <div class="header-box">
-                            <h2 class="container-heading text-start">Cranes - Breakdown History</h2>
-                            <div class="time-zone">
-                                <div class="total-time">Total: <span id="total"></span></div>
-                                <div class="shown-date"> Data Shown: 24Hours
-                                </div>
-                                <div class="custom-btn">
-                                    <div class="c-datepicker-date-editor custom-date-breakdown mt10">
-                                        <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
-                                        <input placeholder="Start" name="" class="c-datepicker-data-input only-date"
-                                            value="" data-listener-added_5167ebe7="true">
-                                        <span class="c-datepicker-range-separator">-</span>
-                                        <input placeholder="End" name="" class="c-datepicker-data-input only-date"
-                                            value="">
-                                    </div>
-                                </div>
-                                <div class="print-btn">
-                                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#myModal">
-                                        <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12.9111 3.39998H11.4263V0.892021C11.4263 0.652714 11.2173 0.458679 10.9596 0.458679H3.04041C2.78269 0.458679 2.57373 0.652689 2.57373 0.892021V3.39998H1.08888C0.488469 3.39998 0 3.85358 0 4.41111V8.77073C0 9.32826 0.488469 9.78184 1.08888 9.78184H2.57381V12.108C2.57381 12.3473 2.78275 12.5413 3.04049 12.5413H10.9595C11.2172 12.5413 11.4262 12.3473 11.4262 12.108V9.78184H12.9111C13.5115 9.78184 14 9.32826 14 8.77073V4.41111C14 3.85361 13.5115 3.39998 12.9111 3.39998ZM3.50705 1.32536H10.4929V3.39998H3.50705V1.32536ZM10.4928 11.6746H3.50716C3.50716 11.59 3.50716 8.23413 3.50716 8.12939H10.4929C10.4928 8.23677 10.4928 11.5932 10.4928 11.6746ZM10.9596 5.9445H9.7717C9.51398 5.9445 9.30502 5.75049 9.30502 5.51116C9.30502 5.27183 9.51396 5.07782 9.7717 5.07782H10.9596C11.2173 5.07782 11.4263 5.27183 11.4263 5.51116C11.4263 5.75049 11.2173 5.9445 10.9596 5.9445Z"
-                                                fill="#393939" />
-                                        </svg>
-                                        Print</button>
-                                    <div class="modal" id="myModal" tabindex="-1">
-                                        <div class="modal-dialog modal-dialog modal-dialog-centered">
-                                            <div class="modal-content" id="print-content">
-                                                <!-- Modal content goes here -->
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Cranes - Breakdown History</h5>
-                                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button> -->
-                                                    <div class="button-box d-flex">
-                                                        <div class="custom-btn me-3"><button>Custom</button></div>
-                                                        <div class="print-btn" onclick="printFile();" id="printButton">
-                                                            <button><svg width="14" height="13" viewBox="0 0 14 13"
-                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M12.9111 3.39998H11.4263V0.892021C11.4263 0.652714 11.2173 0.458679 10.9596 0.458679H3.04041C2.78269 0.458679 2.57373 0.652689 2.57373 0.892021V3.39998H1.08888C0.488469 3.39998 0 3.85358 0 4.41111V8.77073C0 9.32826 0.488469 9.78184 1.08888 9.78184H2.57381V12.108C2.57381 12.3473 2.78275 12.5413 3.04049 12.5413H10.9595C11.2172 12.5413 11.4262 12.3473 11.4262 12.108V9.78184H12.9111C13.5115 9.78184 14 9.32826 14 8.77073V4.41111C14 3.85361 13.5115 3.39998 12.9111 3.39998ZM3.50705 1.32536H10.4929V3.39998H3.50705V1.32536ZM10.4928 11.6746H3.50716C3.50716 11.59 3.50716 8.23413 3.50716 8.12939H10.4929C10.4928 8.23677 10.4928 11.5932 10.4928 11.6746ZM10.9596 5.9445H9.7717C9.51398 5.9445 9.30502 5.75049 9.30502 5.51116C9.30502 5.27183 9.51396 5.07782 9.7717 5.07782H10.9596C11.2173 5.07782 11.4263 5.27183 11.4263 5.51116C11.4263 5.75049 11.2173 5.9445 10.9596 5.9445Z"
-                                                                        fill="#393939" />
-                                                                </svg>
-                                                                Print</button>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="cranes-tab" role="tabpanel"
+                            aria-labelledby="cranes" tabindex="0">
+                            <section class="breakdown-chart my-4">
+                                <div class="header-box">
+                                    <h2 class="container-heading text-start">Cranes - Breakdown History</h2>
+                                    <div class="time-zone">
+                                        <div class="total-time">Total: <span id="total1"></span></div>
+                                        <div class="shown-date"> Data Shown: 24Hours
+                                        </div>
+                                        <div class="custom-btn">
+                                            <div class="c-datepicker-date-editor custom-date-breakdown mt10">
+                                                <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+                                                <input placeholder="Start" name=""
+                                                    class="c-datepicker-data-input only-date" value=""
+                                                    data-listener-added_5167ebe7="true">
+                                                <span class="c-datepicker-range-separator">-</span>
+                                                <input placeholder="End" name=""
+                                                    class="c-datepicker-data-input only-date" value="">
+                                            </div>
+                                        </div>
+                                        <div class="print-btn">
+                                            <button type="button" class="" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">
+                                                <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12.9111 3.39998H11.4263V0.892021C11.4263 0.652714 11.2173 0.458679 10.9596 0.458679H3.04041C2.78269 0.458679 2.57373 0.652689 2.57373 0.892021V3.39998H1.08888C0.488469 3.39998 0 3.85358 0 4.41111V8.77073C0 9.32826 0.488469 9.78184 1.08888 9.78184H2.57381V12.108C2.57381 12.3473 2.78275 12.5413 3.04049 12.5413H10.9595C11.2172 12.5413 11.4262 12.3473 11.4262 12.108V9.78184H12.9111C13.5115 9.78184 14 9.32826 14 8.77073V4.41111C14 3.85361 13.5115 3.39998 12.9111 3.39998ZM3.50705 1.32536H10.4929V3.39998H3.50705V1.32536ZM10.4928 11.6746H3.50716C3.50716 11.59 3.50716 8.23413 3.50716 8.12939H10.4929C10.4928 8.23677 10.4928 11.5932 10.4928 11.6746ZM10.9596 5.9445H9.7717C9.51398 5.9445 9.30502 5.75049 9.30502 5.51116C9.30502 5.27183 9.51396 5.07782 9.7717 5.07782H10.9596C11.2173 5.07782 11.4263 5.27183 11.4263 5.51116C11.4263 5.75049 11.2173 5.9445 10.9596 5.9445Z"
+                                                        fill="#393939" />
+                                                </svg>
+                                                Print</button>
+                                            <div class="modal" id="myModal" tabindex="-1">
+                                                <div class="modal-dialog modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content" id="print-content">
+                                                        <!-- Modal content goes here -->
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                                                        aria-label="Close"></button> -->
+                                                            <div class="button-box d-flex">
+                                                                <div class="custom-btn me-3"><button>Custom</button>
+                                                                </div>
+                                                                <div class="print-btn" onclick="printFile();"
+                                                                    id="printButton">
+                                                                    <button><svg width="14" height="13"
+                                                                            viewBox="0 0 14 13" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M12.9111 3.39998H11.4263V0.892021C11.4263 0.652714 11.2173 0.458679 10.9596 0.458679H3.04041C2.78269 0.458679 2.57373 0.652689 2.57373 0.892021V3.39998H1.08888C0.488469 3.39998 0 3.85358 0 4.41111V8.77073C0 9.32826 0.488469 9.78184 1.08888 9.78184H2.57381V12.108C2.57381 12.3473 2.78275 12.5413 3.04049 12.5413H10.9595C11.2172 12.5413 11.4262 12.3473 11.4262 12.108V9.78184H12.9111C13.5115 9.78184 14 9.32826 14 8.77073V4.41111C14 3.85361 13.5115 3.39998 12.9111 3.39998ZM3.50705 1.32536H10.4929V3.39998H3.50705V1.32536ZM10.4928 11.6746H3.50716C3.50716 11.59 3.50716 8.23413 3.50716 8.12939H10.4929C10.4928 8.23677 10.4928 11.5932 10.4928 11.6746ZM10.9596 5.9445H9.7717C9.51398 5.9445 9.30502 5.75049 9.30502 5.51116C9.30502 5.27183 9.51396 5.07782 9.7717 5.07782H10.9596C11.2173 5.07782 11.4263 5.27183 11.4263 5.51116C11.4263 5.75049 11.2173 5.9445 10.9596 5.9445Z"
+                                                                                fill="#393939" />
+                                                                        </svg>
+                                                                        Print</button>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="table-responsive">
-                                                        <table class="table">
-                                                            <thead class="table-blue rounded-pill">
-                                                                <tr>
-                                                                    <th scope="col">Date</th>
-                                                                    <th scope="col">Vessel Name</th>
-                                                                    <th scope="col">Crane 1</th>
-                                                                    <th scope="col">Crane 2</th>
-                                                                    <th scope="col">Crane 3</th>
-                                                                    <th scope="col">Crane 4</th>
-                                                                    <th scope="col">Total Downtime</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <th scope="row">14 May</th>
-                                                                    <th>MV Jawad </th>
-                                                                    <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>3 hrs <br>(Oil Limitation)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>4.8 hrs</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">14 May</th>
-                                                                    <th>MV Jawad </th>
-                                                                    <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>3 hrs <br>(Oil Limitation)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>4.8 hrs</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">14 May</th>
-                                                                    <th>MV Jawad </th>
-                                                                    <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>3 hrs <br>(Oil Limitation)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>4.8 hrs</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">14 May</th>
-                                                                    <th>MV Jawad </th>
-                                                                    <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>3 hrs <br>(Oil Limitation)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>4.8 hrs</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">14 May</th>
-                                                                    <th>MV Jawad </th>
-                                                                    <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>3 hrs <br>(Oil Limitation)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>4.8 hrs</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">14 May</th>
-                                                                    <th>MV Jawad </th>
-                                                                    <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>3 hrs <br>(Oil Limitation)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>4.8 hrs</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">14 May</th>
-                                                                    <th>MV Jawad </th>
-                                                                    <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>3 hrs <br>(Oil Limitation)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>4.8 hrs</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">14 May</th>
-                                                                    <th>MV Jawad </th>
-                                                                    <td>1.2 hrs <br>(Hoisting Wire)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>3 hrs <br>(Oil Limitation)</td>
-                                                                    <td>NILL</td>
-                                                                    <td>4.8 hrs</td>
-                                                                </tr>
+                                                        <div class="modal-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table">
+                                                                    <thead class="table-blue rounded-pill">
+                                                                        <tr>
+                                                                            <th scope="col">Date</th>
+                                                                            <th scope="col">Vessel Name</th>
+                                                                            <th scope="col">Crane 1</th>
+                                                                            <th scope="col">Crane 2</th>
+                                                                            <th scope="col">Crane 3</th>
+                                                                            <th scope="col">Crane 4</th>
+                                                                            <th scope="col">Total Downtime</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
 
-                                                            </tbody>
-                                                        </table>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div id="chart">
-                        </div>
-                        <div class="modal" id="graphModal" tabindex="-1">
-                            <div class="modal-dialog modal-dialog modal-dialog-centered">
-                                <div class="modal-content" id="print-content">
-                                    <!-- Modal content goes here -->
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Cranes - Breakdown History</h5>
-                                    </div>
-                                    <div class="modal-body">
+                                <hr>
+                                <div id="craneChart">
+                                </div>
+                                <div class="modal" id="graphModal" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog modal-dialog-centered">
+                                        <div class="modal-content" id="print-content">
+                                            <!-- Modal content goes here -->
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                            </div>
+                                            <div class="modal-body">
 
 
 
-<div id="modalChart">
-</div>
+                                                <div id="modalChart">
+                                                </div>
 
 
 
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </section>
                         </div>
+                        <div class="tab-pane fade" id="generator-tab-content" role="tabpanel" aria-labelledby="generator-tab"
+                            tabindex="0">
+                            <section class="breakdown-chart my-4">
+                                <div class="header-box">
+                                    <h2 class="container-heading text-start">Generator - Breakdown History</h2>
+                                    <div class="time-zone">
+                                        <div class="total-time">Total: <span id="total2"></span></div>
+                                        <div class="shown-date"> Data Shown: 24Hours
+                                        </div>
+                                        <div class="custom-btn">
+                                            <div class="c-datepicker-date-editor custom-date-breakdown mt10">
+                                                <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+                                                <input placeholder="Start" name=""
+                                                    class="c-datepicker-data-input only-date" value=""
+                                                    data-listener-added_5167ebe7="true">
+                                                <span class="c-datepicker-range-separator">-</span>
+                                                <input placeholder="End" name=""
+                                                    class="c-datepicker-data-input only-date" value="">
+                                            </div>
+                                        </div>
+                                        <div class="print-btn">
+                                            <button type="button" class="" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">
+                                                <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12.9111 3.39998H11.4263V0.892021C11.4263 0.652714 11.2173 0.458679 10.9596 0.458679H3.04041C2.78269 0.458679 2.57373 0.652689 2.57373 0.892021V3.39998H1.08888C0.488469 3.39998 0 3.85358 0 4.41111V8.77073C0 9.32826 0.488469 9.78184 1.08888 9.78184H2.57381V12.108C2.57381 12.3473 2.78275 12.5413 3.04049 12.5413H10.9595C11.2172 12.5413 11.4262 12.3473 11.4262 12.108V9.78184H12.9111C13.5115 9.78184 14 9.32826 14 8.77073V4.41111C14 3.85361 13.5115 3.39998 12.9111 3.39998ZM3.50705 1.32536H10.4929V3.39998H3.50705V1.32536ZM10.4928 11.6746H3.50716C3.50716 11.59 3.50716 8.23413 3.50716 8.12939H10.4929C10.4928 8.23677 10.4928 11.5932 10.4928 11.6746ZM10.9596 5.9445H9.7717C9.51398 5.9445 9.30502 5.75049 9.30502 5.51116C9.30502 5.27183 9.51396 5.07782 9.7717 5.07782H10.9596C11.2173 5.07782 11.4263 5.27183 11.4263 5.51116C11.4263 5.75049 11.2173 5.9445 10.9596 5.9445Z"
+                                                        fill="#393939" />
+                                                </svg>
+                                                Print</button>
+                                            <div class="modal" id="myModal" tabindex="-1">
+                                                <div class="modal-dialog modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content" id="print-content">
+                                                        <!-- Modal content goes here -->
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                                                        aria-label="Close"></button> -->
+                                                            <div class="button-box d-flex">
+                                                                <div class="custom-btn me-3"><button>Custom</button>
+                                                                </div>
+                                                                <div class="print-btn" onclick="printFile();"
+                                                                    id="printButton">
+                                                                    <button><svg width="14" height="13"
+                                                                            viewBox="0 0 14 13" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M12.9111 3.39998H11.4263V0.892021C11.4263 0.652714 11.2173 0.458679 10.9596 0.458679H3.04041C2.78269 0.458679 2.57373 0.652689 2.57373 0.892021V3.39998H1.08888C0.488469 3.39998 0 3.85358 0 4.41111V8.77073C0 9.32826 0.488469 9.78184 1.08888 9.78184H2.57381V12.108C2.57381 12.3473 2.78275 12.5413 3.04049 12.5413H10.9595C11.2172 12.5413 11.4262 12.3473 11.4262 12.108V9.78184H12.9111C13.5115 9.78184 14 9.32826 14 8.77073V4.41111C14 3.85361 13.5115 3.39998 12.9111 3.39998ZM3.50705 1.32536H10.4929V3.39998H3.50705V1.32536ZM10.4928 11.6746H3.50716C3.50716 11.59 3.50716 8.23413 3.50716 8.12939H10.4929C10.4928 8.23677 10.4928 11.5932 10.4928 11.6746ZM10.9596 5.9445H9.7717C9.51398 5.9445 9.30502 5.75049 9.30502 5.51116C9.30502 5.27183 9.51396 5.07782 9.7717 5.07782H10.9596C11.2173 5.07782 11.4263 5.27183 11.4263 5.51116C11.4263 5.75049 11.2173 5.9445 10.9596 5.9445Z"
+                                                                                fill="#393939" />
+                                                                        </svg>
+                                                                        Print</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table">
+                                                                    <thead class="table-blue rounded-pill">
+                                                                        <tr>
+                                                                            <th scope="col">Date</th>
+                                                                            <th scope="col">Vessel Name</th>
+                                                                            <th scope="col">Crane 1</th>
+                                                                            <th scope="col">Crane 2</th>
+                                                                            <th scope="col">Crane 3</th>
+                                                                            <th scope="col">Crane 4</th>
+                                                                            <th scope="col">Total Downtime</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
 
-                    </section>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div id="generateChart">
+                                </div>
+                                <div class="modal" id="graphModal" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog modal-dialog-centered">
+                                        <div class="modal-content" id="print-content">
+                                            <!-- Modal content goes here -->
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                            </div>
+                                            <div class="modal-body">
+
+
+
+                                                <div id="modalChart">
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="tab-pane fade" id="main-engine-content" role="tabpanel" aria-labelledby="main-engine-tab"
+                            tabindex="0">
+                            <section class="breakdown-chart my-4">
+                                <div class="header-box">
+                                    <h2 class="container-heading text-start">Main Engine - Breakdown History</h2>
+                                    <div class="time-zone">
+                                        <div class="total-time">Total: <span id="total3"></span></div>
+                                        <div class="shown-date"> Data Shown: 24Hours
+                                        </div>
+                                        <div class="custom-btn">
+                                            <div class="c-datepicker-date-editor custom-date-breakdown mt10">
+                                                <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+                                                <input placeholder="Start" name=""
+                                                    class="c-datepicker-data-input only-date" value=""
+                                                    data-listener-added_5167ebe7="true">
+                                                <span class="c-datepicker-range-separator">-</span>
+                                                <input placeholder="End" name=""
+                                                    class="c-datepicker-data-input only-date" value="">
+                                            </div>
+                                        </div>
+                                        <div class="print-btn">
+                                            <button type="button" class="" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">
+                                                <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12.9111 3.39998H11.4263V0.892021C11.4263 0.652714 11.2173 0.458679 10.9596 0.458679H3.04041C2.78269 0.458679 2.57373 0.652689 2.57373 0.892021V3.39998H1.08888C0.488469 3.39998 0 3.85358 0 4.41111V8.77073C0 9.32826 0.488469 9.78184 1.08888 9.78184H2.57381V12.108C2.57381 12.3473 2.78275 12.5413 3.04049 12.5413H10.9595C11.2172 12.5413 11.4262 12.3473 11.4262 12.108V9.78184H12.9111C13.5115 9.78184 14 9.32826 14 8.77073V4.41111C14 3.85361 13.5115 3.39998 12.9111 3.39998ZM3.50705 1.32536H10.4929V3.39998H3.50705V1.32536ZM10.4928 11.6746H3.50716C3.50716 11.59 3.50716 8.23413 3.50716 8.12939H10.4929C10.4928 8.23677 10.4928 11.5932 10.4928 11.6746ZM10.9596 5.9445H9.7717C9.51398 5.9445 9.30502 5.75049 9.30502 5.51116C9.30502 5.27183 9.51396 5.07782 9.7717 5.07782H10.9596C11.2173 5.07782 11.4263 5.27183 11.4263 5.51116C11.4263 5.75049 11.2173 5.9445 10.9596 5.9445Z"
+                                                        fill="#393939" />
+                                                </svg>
+                                                Print</button>
+                                            <div class="modal" id="myModal" tabindex="-1">
+                                                <div class="modal-dialog modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content" id="print-content">
+                                                        <!-- Modal content goes here -->
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                                                        aria-label="Close"></button> -->
+                                                            <div class="button-box d-flex">
+                                                                <div class="custom-btn me-3"><button>Custom</button>
+                                                                </div>
+                                                                <div class="print-btn" onclick="printFile();"
+                                                                    id="printButton">
+                                                                    <button><svg width="14" height="13"
+                                                                            viewBox="0 0 14 13" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M12.9111 3.39998H11.4263V0.892021C11.4263 0.652714 11.2173 0.458679 10.9596 0.458679H3.04041C2.78269 0.458679 2.57373 0.652689 2.57373 0.892021V3.39998H1.08888C0.488469 3.39998 0 3.85358 0 4.41111V8.77073C0 9.32826 0.488469 9.78184 1.08888 9.78184H2.57381V12.108C2.57381 12.3473 2.78275 12.5413 3.04049 12.5413H10.9595C11.2172 12.5413 11.4262 12.3473 11.4262 12.108V9.78184H12.9111C13.5115 9.78184 14 9.32826 14 8.77073V4.41111C14 3.85361 13.5115 3.39998 12.9111 3.39998ZM3.50705 1.32536H10.4929V3.39998H3.50705V1.32536ZM10.4928 11.6746H3.50716C3.50716 11.59 3.50716 8.23413 3.50716 8.12939H10.4929C10.4928 8.23677 10.4928 11.5932 10.4928 11.6746ZM10.9596 5.9445H9.7717C9.51398 5.9445 9.30502 5.75049 9.30502 5.51116C9.30502 5.27183 9.51396 5.07782 9.7717 5.07782H10.9596C11.2173 5.07782 11.4263 5.27183 11.4263 5.51116C11.4263 5.75049 11.2173 5.9445 10.9596 5.9445Z"
+                                                                                fill="#393939" />
+                                                                        </svg>
+                                                                        Print</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table">
+                                                                    <thead class="table-blue rounded-pill">
+                                                                        <tr>
+                                                                            <th scope="col">Date</th>
+                                                                            <th scope="col">Vessel Name</th>
+                                                                            <th scope="col">Crane 1</th>
+                                                                            <th scope="col">Crane 2</th>
+                                                                            <th scope="col">Crane 3</th>
+                                                                            <th scope="col">Crane 4</th>
+                                                                            <th scope="col">Total Downtime</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div id="engineChart">
+                                </div>
+                                <div class="modal" id="graphModal" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog modal-dialog-centered">
+                                        <div class="modal-content" id="print-content">
+                                            <!-- Modal content goes here -->
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                            </div>
+                                            <div class="modal-body">
+
+
+
+                                                <div id="modalChart">
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="tab-pane fade" id="other-tab-content" role="tabpanel" aria-labelledby="other-tab"
+                            tabindex="0">
+                            <section class="breakdown-chart my-4">
+                                <div class="header-box">
+                                    <h2 class="container-heading text-start">Others - Breakdown History</h2>
+                                    <div class="time-zone">
+                                        <div class="total-time">Total: <span id="total4"></span></div>
+                                        <div class="shown-date"> Data Shown: 24Hours
+                                        </div>
+                                        <div class="custom-btn">
+                                            <div class="c-datepicker-date-editor custom-date-breakdown mt10">
+                                                <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+                                                <input placeholder="Start" name=""
+                                                    class="c-datepicker-data-input only-date" value=""
+                                                    data-listener-added_5167ebe7="true">
+                                                <span class="c-datepicker-range-separator">-</span>
+                                                <input placeholder="End" name=""
+                                                    class="c-datepicker-data-input only-date" value="">
+                                            </div>
+                                        </div>
+                                        <div class="print-btn">
+                                            <button type="button" class="" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">
+                                                <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12.9111 3.39998H11.4263V0.892021C11.4263 0.652714 11.2173 0.458679 10.9596 0.458679H3.04041C2.78269 0.458679 2.57373 0.652689 2.57373 0.892021V3.39998H1.08888C0.488469 3.39998 0 3.85358 0 4.41111V8.77073C0 9.32826 0.488469 9.78184 1.08888 9.78184H2.57381V12.108C2.57381 12.3473 2.78275 12.5413 3.04049 12.5413H10.9595C11.2172 12.5413 11.4262 12.3473 11.4262 12.108V9.78184H12.9111C13.5115 9.78184 14 9.32826 14 8.77073V4.41111C14 3.85361 13.5115 3.39998 12.9111 3.39998ZM3.50705 1.32536H10.4929V3.39998H3.50705V1.32536ZM10.4928 11.6746H3.50716C3.50716 11.59 3.50716 8.23413 3.50716 8.12939H10.4929C10.4928 8.23677 10.4928 11.5932 10.4928 11.6746ZM10.9596 5.9445H9.7717C9.51398 5.9445 9.30502 5.75049 9.30502 5.51116C9.30502 5.27183 9.51396 5.07782 9.7717 5.07782H10.9596C11.2173 5.07782 11.4263 5.27183 11.4263 5.51116C11.4263 5.75049 11.2173 5.9445 10.9596 5.9445Z"
+                                                        fill="#393939" />
+                                                </svg>
+                                                Print</button>
+                                            <div class="modal" id="myModal" tabindex="-1">
+                                                <div class="modal-dialog modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content" id="print-content">
+                                                        <!-- Modal content goes here -->
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                                                        aria-label="Close"></button> -->
+                                                            <div class="button-box d-flex">
+                                                                <div class="custom-btn me-3"><button>Custom</button>
+                                                                </div>
+                                                                <div class="print-btn" onclick="printFile();"
+                                                                    id="printButton">
+                                                                    <button><svg width="14" height="13"
+                                                                            viewBox="0 0 14 13" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M12.9111 3.39998H11.4263V0.892021C11.4263 0.652714 11.2173 0.458679 10.9596 0.458679H3.04041C2.78269 0.458679 2.57373 0.652689 2.57373 0.892021V3.39998H1.08888C0.488469 3.39998 0 3.85358 0 4.41111V8.77073C0 9.32826 0.488469 9.78184 1.08888 9.78184H2.57381V12.108C2.57381 12.3473 2.78275 12.5413 3.04049 12.5413H10.9595C11.2172 12.5413 11.4262 12.3473 11.4262 12.108V9.78184H12.9111C13.5115 9.78184 14 9.32826 14 8.77073V4.41111C14 3.85361 13.5115 3.39998 12.9111 3.39998ZM3.50705 1.32536H10.4929V3.39998H3.50705V1.32536ZM10.4928 11.6746H3.50716C3.50716 11.59 3.50716 8.23413 3.50716 8.12939H10.4929C10.4928 8.23677 10.4928 11.5932 10.4928 11.6746ZM10.9596 5.9445H9.7717C9.51398 5.9445 9.30502 5.75049 9.30502 5.51116C9.30502 5.27183 9.51396 5.07782 9.7717 5.07782H10.9596C11.2173 5.07782 11.4263 5.27183 11.4263 5.51116C11.4263 5.75049 11.2173 5.9445 10.9596 5.9445Z"
+                                                                                fill="#393939" />
+                                                                        </svg>
+                                                                        Print</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table">
+                                                                    <thead class="table-blue rounded-pill">
+                                                                        <tr>
+                                                                            <th scope="col">Date</th>
+                                                                            <th scope="col">Vessel Name</th>
+                                                                            <th scope="col">Crane 1</th>
+                                                                            <th scope="col">Crane 2</th>
+                                                                            <th scope="col">Crane 3</th>
+                                                                            <th scope="col">Crane 4</th>
+                                                                            <th scope="col">Total Downtime</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row">14 May</th>
+                                                                            <th>MV Jawad </th>
+                                                                            <td>1.2 hrs <br>(Hoisting Wire)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>3 hrs <br>(Oil Limitation)</td>
+                                                                            <td>NILL</td>
+                                                                            <td>4.8 hrs</td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div id="otherChart">
+                                </div>
+                                <div class="modal" id="graphModal" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog modal-dialog-centered">
+                                        <div class="modal-content" id="print-content">
+                                            <!-- Modal content goes here -->
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Cranes - Breakdown History</h5>
+                                            </div>
+                                            <div class="modal-body">
+
+
+
+                                                <div id="modalChart">
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
                 </section>
                 <section class="grabs container">
                     <div class="headline d-flex">

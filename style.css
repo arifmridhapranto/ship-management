@@ -182,11 +182,11 @@ body {
   border-radius: 12px;
 }
 
-.dropdown-toggle::after {
+/* #sidebar .dropdown-toggle::after {
   position: absolute;
   right: 10px;
   top: 23px;
-}
+} */
 
 #sidebar ul li.dropdown {
   position: sticky;

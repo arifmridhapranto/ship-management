@@ -122,164 +122,653 @@ $(document).ready(function () {
   });
 });
 
-var options = {
-  series: [
-    {
-      data: [
-        {
-          x: "M.V Jawad",
-          y: [3, 7],
-        },
-        {
-          x: "M.V Nasir",
-          y: [9, 11],
-        },
-        {
-          x: "M.V Awal",
-          y: [16, 23],
-        },
-        {
-          x: "M.V Sahin",
-          y: [18, 19],
-        },
-        {
-          x: "M.V Jawad",
-          y: [9, 13],
-        },
-        {
-          x: "M.V Nasir",
-          y: [15, 18],
-        },
-        {
-          x: "M.V Sahin",
-          y: [7, 14],
-        },
-      ],
-    },
-  ],
-  chart: {
-    toolbar: {
-      show: false,
-    },
-    height: 300,
-    type: "rangeBar",
-    zoom: false,
-    events: {
-      click: function (event, chartContext, config) {
-        // console.log("pranto Mridha");
-      },
-      xAxisLabelClick: function (event, chartContext, config) {
-        console.log("xAxis-level click");
-      },
-      dataPointSelection: function (event, chartContext, config) {
-        var modal = document.getElementById("graphModal");
-        modal.style.display = "block";
+// Crane Chart data
 
-        // Add event listener to close the modal
-        // var closeBtn = modal.querySelector(".close");
-        // closeBtn.addEventListener("click", function () {
-        //   modal.style.display = "none";
-        // });
-        window.addEventListener("click", function (event) {
-          if (event.target === modal) {
-            modal.style.display = "none";
-          }
-        });
+$(document).ready(function () {
+  var options = {
+    series: [
+      {
+        data: [
+          {
+            x: "M.V Jawad",
+            y: [3, 7],
+          },
+          {
+            x: "M.V Nasir",
+            y: [9, 11],
+          },
+          {
+            x: "M.V Awal",
+            y: [16, 23],
+          },
+          {
+            x: "M.V Sahin",
+            y: [18, 19],
+          },
+          {
+            x: "M.V Jawad",
+            y: [9, 13],
+          },
+          {
+            x: "M.V Nasir",
+            y: [15, 18],
+          },
+          {
+            x: "M.V Sahin",
+            y: [7, 14],
+          },
+        ],
       },
-    },
-  },
+    ],
+    chart: {
+      toolbar: {
+        show: false,
+      },
+      height: 300,
+      type: "rangeBar",
+      zoom: false,
+      events: {
+        click: function (event, chartContext, config) {},
+        xAxisLabelClick: function (event, chartContext, config) {},
+        dataPointSelection: function (event, chartContext, config) {
+          var modal = document.getElementById("graphModal");
+          modal.style.display = "block";
 
-  plotOptions: {
-    bar: {
-      horizontal: true,
-      barHeight: "60%",
-      borderRadius: "15",
-      distributed: true,
-    },
-  },
-  xaxis: {
-    type: "numeric",
-    min: 0,
-    max: 23,
-    tickAmount: 24,
-  },
-  dataLabels: {
-    enabled: true,
-    formatter: function (val) {
-      var diff = val[1] - val[0];
-      return diff + (diff > 1 ? " Hours" : " Hour");
-    },
-    offsetX: 0,
-    offsetY: 0,
-    style: {
-      colors: "#000000",
-      background: {
-        enabled: true,
-        foreColor: "#000000",
-        padding: 8,
-        borderRadius: 50,
-        borderWidth: 1,
-        borderColor: "#000000",
-      },
-    },
-  },
-  stroke: {
-    width: 1,
-  },
-  fill: {
-    type: "solid",
-    opacity: 0.6,
-  },
-  legend: {
-    position: "top",
-    horizontalAlign: "left",
-  },
-  tooltip: {
-    enabled: true,
-    grid: {
-      show: true,
-      borderColor: "#f0f0f0",
-      strokeDashArray: 0,
-      position: "back",
-      xaxis: {
-        formatter: function (value) {
-          return "X-Axis Label: " + value;
-        },
-        lines: {
-          show: true,
-        },
-      },
-      yaxis: {
-        lines: {
-          show: false,
-        },
-        padding: {
-          top: 0,
-          right: 42,
-          bottom: 0,
-          left: 0,
+          // Add event listener to close the modal
+          // var closeBtn = modal.querySelector(".close");
+          // closeBtn.addEventListener("click", function () {
+          //   modal.style.display = "none";
+          // });
+          window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+              modal.style.display = "none";
+            }
+          });
         },
       },
     },
-  },
 
-  autoSelected: false,
-};
+    plotOptions: {
+      bar: {
+        horizontal: true,
+        barHeight: "60%",
+        borderRadius: "15",
+        distributed: true,
+      },
+    },
+    xaxis: {
+      type: "numeric",
+      min: 0,
+      max: 23,
+      tickAmount: 24,
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val) {
+        var diff = val[1] - val[0];
+        return diff + (diff > 1 ? " Hours" : " Hour");
+      },
+      offsetX: 0,
+      offsetY: 0,
+      style: {
+        colors: "#000000",
+        background: {
+          enabled: true,
+          foreColor: "#000000",
+          padding: 8,
+          borderRadius: 50,
+          borderWidth: 1,
+          borderColor: "#000000",
+        },
+      },
+    },
+    stroke: {
+      width: 1,
+    },
+    fill: {
+      type: "solid",
+      opacity: 0.6,
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "left",
+    },
+    tooltip: {
+      enabled: true,
+      grid: {
+        show: true,
+        borderColor: "#f0f0f0",
+        strokeDashArray: 0,
+        position: "back",
+        xaxis: {
+          formatter: function (value) {
+            return "X-Axis Label: " + value;
+          },
+          lines: {
+            show: true,
+          },
+        },
+        yaxis: {
+          lines: {
+            show: false,
+          },
+          padding: {
+            top: 0,
+            right: 42,
+            bottom: 0,
+            left: 0,
+          },
+        },
+      },
+    },
 
-var sum = 0;
-var totalHoursData = options.series[0].data.map(function (item) {
-  var diff = item.y[1] - item.y[0];
-  sum = sum + diff;
-  // var totalHours = diff > 0 ? diff : 24 + diff;
-  // Calculate total hours
-  return sum;
+    autoSelected: false,
+  };
+
+  let sum1 = 0;
+  let totalHoursData = options.series[0].data.map(function (item) {
+    let diff = item.y[1] - item.y[0];
+    sum1 = sum1 + diff;
+    // let totalHours = diff > 0 ? diff : 24 + diff;
+    // Calculate total hours
+    return sum1;
+  });
+
+  const total = document.getElementById("total1");
+  total.innerText = sum1.toString() + " hours";
+
+  let craneChart = new ApexCharts(
+    document.querySelector("#craneChart"),
+    options
+  );
+  craneChart.render();
 });
 
-const total = document.getElementById("total");
-total.innerText = sum.toString() + " hours";
+// Generate Chart Data
 
-var chart = new ApexCharts(document.querySelector("#chart"), options);
-chart.render();
+$(document).ready(function () {
+  let options = {
+    series: [
+      {
+        data: [
+          {
+            x: "M.V Jawad",
+            y: [2, 5],
+          },
+          {
+            x: "M.V Nasir",
+            y: [1, 7],
+          },
+          {
+            x: "M.V Awal",
+            y: [9, 13],
+          },
+          {
+            x: "M.V Sahin",
+            y: [16, 20],
+          },
+          {
+            x: "M.V Jawad",
+            y: [15, 23],
+          },
+          {
+            x: "M.V Nasir",
+            y: [19, 21],
+          },
+          {
+            x: "M.V Sahin",
+            y: [2, 4],
+          },
+        ],
+      },
+    ],
+    chart: {
+      toolbar: {
+        show: false,
+      },
+      height: 300,
+      type: "rangeBar",
+      zoom: false,
+      events: {
+        click: function (event, chartContext, config) {},
+        xAxisLabelClick: function (event, chartContext, config) {},
+        dataPointSelection: function (event, chartContext, config) {
+          let modal = document.getElementById("graphModal");
+          modal.style.display = "block";
+
+          // Add event listener to close the modal
+          // let closeBtn = modal.querySelector(".close");
+          // closeBtn.addEventListener("click", function () {
+          //   modal.style.display = "none";
+          // });
+          window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+              modal.style.display = "none";
+            }
+          });
+        },
+      },
+    },
+
+    plotOptions: {
+      bar: {
+        horizontal: true,
+        barHeight: "60%",
+        borderRadius: "15",
+        distributed: true,
+      },
+    },
+    xaxis: {
+      type: "numeric",
+      min: 0,
+      max: 23,
+      tickAmount: 24,
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val) {
+        let diff = val[1] - val[0];
+        return diff + (diff > 1 ? " Hours" : " Hour");
+      },
+      offsetX: 0,
+      offsetY: 0,
+      style: {
+        colors: "#000000",
+        background: {
+          enabled: true,
+          foreColor: "#000000",
+          padding: 8,
+          borderRadius: 50,
+          borderWidth: 1,
+          borderColor: "#000000",
+        },
+      },
+    },
+    stroke: {
+      width: 1,
+    },
+    fill: {
+      type: "solid",
+      opacity: 0.6,
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "left",
+    },
+    tooltip: {
+      enabled: true,
+      grid: {
+        show: true,
+        borderColor: "#f0f0f0",
+        strokeDashArray: 0,
+        position: "back",
+        xaxis: {
+          formatter: function (value) {
+            return "X-Axis Label: " + value;
+          },
+          lines: {
+            show: true,
+          },
+        },
+        yaxis: {
+          lines: {
+            show: false,
+          },
+          padding: {
+            top: 0,
+            right: 42,
+            bottom: 0,
+            left: 0,
+          },
+        },
+      },
+    },
+
+    autoSelected: false,
+  };
+
+  let sum = 0;
+  let totalHoursData = options.series[0].data.map(function (item) {
+    let diff = item.y[1] - item.y[0];
+    sum = sum + diff;
+    // let totalHours = diff > 0 ? diff : 24 + diff;
+    // Calculate total hours
+    return sum;
+  });
+
+  const totals = document.getElementById("total2");
+  totals.innerText = sum.toString() + " hours";
+
+  let generateChart = new ApexCharts(
+    document.querySelector("#generateChart"),
+    options
+  );
+  generateChart.render();
+});
+
+// Main Engine Chart Data
+
+$(document).ready(function () {
+  let options = {
+    series: [
+      {
+        data: [
+          {
+            x: "M.V Jawad",
+            y: [13, 15],
+          },
+          {
+            x: "M.V Nasir",
+            y: [0, 3],
+          },
+          {
+            x: "M.V Awal",
+            y: [0, 7],
+          },
+          {
+            x: "M.V Sahin",
+            y: [1, 2],
+          },
+          {
+            x: "M.V Jawad",
+            y: [6, 7],
+          },
+          {
+            x: "M.V Nasir",
+            y: [9, 14],
+          },
+          {
+            x: "M.V Sahin",
+            y: [2, 6],
+          },
+        ],
+      },
+    ],
+    chart: {
+      toolbar: {
+        show: false,
+      },
+      height: 300,
+      type: "rangeBar",
+      zoom: false,
+      events: {
+        click: function (event, chartContext, config) {},
+        xAxisLabelClick: function (event, chartContext, config) {},
+        dataPointSelection: function (event, chartContext, config) {
+          let modal = document.getElementById("graphModal");
+          modal.style.display = "block";
+
+          // Add event listener to close the modal
+          // let closeBtn = modal.querySelector(".close");
+          // closeBtn.addEventListener("click", function () {
+          //   modal.style.display = "none";
+          // });
+          window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+              modal.style.display = "none";
+            }
+          });
+        },
+      },
+    },
+
+    plotOptions: {
+      bar: {
+        horizontal: true,
+        barHeight: "60%",
+        borderRadius: "15",
+        distributed: true,
+      },
+    },
+    xaxis: {
+      type: "numeric",
+      min: 0,
+      max: 23,
+      tickAmount: 24,
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val) {
+        let diff = val[1] - val[0];
+        return diff + (diff > 1 ? " Hours" : " Hour");
+      },
+      offsetX: 0,
+      offsetY: 0,
+      style: {
+        colors: "#000000",
+        background: {
+          enabled: true,
+          foreColor: "#000000",
+          padding: 8,
+          borderRadius: 50,
+          borderWidth: 1,
+          borderColor: "#000000",
+        },
+      },
+    },
+    stroke: {
+      width: 1,
+    },
+    fill: {
+      type: "solid",
+      opacity: 0.6,
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "left",
+    },
+    tooltip: {
+      enabled: true,
+      grid: {
+        show: true,
+        borderColor: "#f0f0f0",
+        strokeDashArray: 0,
+        position: "back",
+        xaxis: {
+          formatter: function (value) {
+            return "X-Axis Label: " + value;
+          },
+          lines: {
+            show: true,
+          },
+        },
+        yaxis: {
+          lines: {
+            show: false,
+          },
+          padding: {
+            top: 0,
+            right: 42,
+            bottom: 0,
+            left: 0,
+          },
+        },
+      },
+    },
+
+    autoSelected: false,
+  };
+
+  let sum = 0;
+  let totalHoursData = options.series[0].data.map(function (item) {
+    let diff = item.y[1] - item.y[0];
+    sum = sum + diff;
+    // let totalHours = diff > 0 ? diff : 24 + diff;
+    // Calculate total hours
+    return sum;
+  });
+
+  const totals = document.getElementById("total3");
+  totals.innerText = sum.toString() + " hours";
+
+  let engineChart = new ApexCharts(
+    document.querySelector("#engineChart"),
+    options
+  );
+  engineChart.render();
+});
+
+// Other Chart Data
+
+$(document).ready(function () {
+  let options = {
+    series: [
+      {
+        data: [
+          {
+            x: "M.V Jawad",
+            y: [13, 15],
+          },
+          {
+            x: "M.V Nasir",
+            y: [0, 3],
+          },
+          {
+            x: "M.V Awal",
+            y: [0, 7],
+          },
+          {
+            x: "M.V Sahin",
+            y: [1, 2],
+          },
+          {
+            x: "M.V Jawad",
+            y: [6, 7],
+          },
+          {
+            x: "M.V Nasir",
+            y: [9, 14],
+          },
+          {
+            x: "M.V Sahin",
+            y: [2, 6],
+          },
+        ],
+      },
+    ],
+    chart: {
+      toolbar: {
+        show: false,
+      },
+      height: 300,
+      type: "rangeBar",
+      zoom: false,
+      events: {
+        click: function (event, chartContext, config) {},
+        xAxisLabelClick: function (event, chartContext, config) {},
+        dataPointSelection: function (event, chartContext, config) {
+          let modal = document.getElementById("graphModal");
+          modal.style.display = "block";
+
+          // Add event listener to close the modal
+          // let closeBtn = modal.querySelector(".close");
+          // closeBtn.addEventListener("click", function () {
+          //   modal.style.display = "none";
+          // });
+          window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+              modal.style.display = "none";
+            }
+          });
+        },
+      },
+    },
+
+    plotOptions: {
+      bar: {
+        horizontal: true,
+        barHeight: "60%",
+        borderRadius: "15",
+        distributed: true,
+      },
+    },
+    xaxis: {
+      type: "numeric",
+      min: 0,
+      max: 23,
+      tickAmount: 24,
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val) {
+        let diff = val[1] - val[0];
+        return diff + (diff > 1 ? " Hours" : " Hour");
+      },
+      offsetX: 0,
+      offsetY: 0,
+      style: {
+        colors: "#000000",
+        background: {
+          enabled: true,
+          foreColor: "#000000",
+          padding: 8,
+          borderRadius: 50,
+          borderWidth: 1,
+          borderColor: "#000000",
+        },
+      },
+    },
+    stroke: {
+      width: 1,
+    },
+    fill: {
+      type: "solid",
+      opacity: 0.6,
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "left",
+    },
+    tooltip: {
+      enabled: true,
+      grid: {
+        show: true,
+        borderColor: "#f0f0f0",
+        strokeDashArray: 0,
+        position: "back",
+        xaxis: {
+          formatter: function (value) {
+            return "X-Axis Label: " + value;
+          },
+          lines: {
+            show: true,
+          },
+        },
+        yaxis: {
+          lines: {
+            show: false,
+          },
+          padding: {
+            top: 0,
+            right: 42,
+            bottom: 0,
+            left: 0,
+          },
+        },
+      },
+    },
+
+    autoSelected: false,
+  };
+
+  let sum = 0;
+  let totalHoursData = options.series[0].data.map(function (item) {
+    let diff = item.y[1] - item.y[0];
+    sum = sum + diff;
+    // let totalHours = diff > 0 ? diff : 24 + diff;
+    // Calculate total hours
+    return sum;
+  });
+
+  const totals = document.getElementById("total4");
+  totals.innerText = sum.toString() + " hours";
+
+  let otherChart = new ApexCharts(
+    document.querySelector("#otherChart"),
+    options
+  );
+  otherChart.render();
+});
 
 // print modal
 // var myModal = document.getElementById("myModal");
@@ -348,12 +837,6 @@ $(document).ready(function () {
 // navigation buttons
 
 $(document).ready(function () {
-  // $("#sidebarCollapse").on("click", function () {
-  //   $("#sidebar").toggleClass("active");
-  //   $("#content").toggleClass("active");
-  //   console.log("sidebar 1");
-  // });
-
   $(".more-button, .body-overlay").on("click", function () {
     $("#sidebar, .body-overlay").toggleClass("show-nav");
   });
@@ -396,16 +879,22 @@ var options = {
     stacked: true,
     // stackType: '100%',
     events: {
-      click: function (chart, w, e) {
-        // console.log(chart, w, e)
-      },
+      click: function (chart, w, e) {},
     },
   },
-  // colors: colors,
   plotOptions: {
     bar: {
       columnWidth: "60%",
       distributed: true,
+    },
+    dataLabels: {
+      position: "top", // Position the labels above the columns
+      formatter: function (val, opts) {
+        const colors = ["#ff0000", "#00ff00", "#0000ff"]; // Array of colors for each data point
+        const colorIndex = opts.dataPointIndex; // Get the index of the data point
+        opts.w.config.chart.colors = colors; // Assign the colors array to the chart configuration
+        return val; // Return the original value for the label
+      },
     },
   },
   dataLabels: {
