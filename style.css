@@ -44,6 +44,10 @@ body {
   background-color: var(--main-bg-color);
 }
 
+.c-datepicker-data-input.only-date{
+  width: 50px;
+}
+
 .section-heading {
   font-weight: 600;
   font-size: 22px;
@@ -82,16 +86,91 @@ body {
   transition: all 0.3s linear;
   float: right;
 }
+    .main-section.active {
+      width: 100%;
+    }
 
 .navi-box {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 80px;
   width: 100%;
-  background-color: var(--white);
+  background-color: var(--blue-color);
   border-bottom: 1px solid var(--box-subtitle-regular-color);
+  padding: 20px;
 }
 
 /* navigation section style  */
+#sidebarCollapse{
+  background-color: var(--icon-hover-background);
+    padding: 8px 12px;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    transition: 0.3s linear;
+}
+/* #sidebarCollapse{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.main-section #sidebarCollapse svg{
+  height: 20px;
+  width: 20px;
+  transform: rotate(90deg);
+  fill: #ffff;
+  color: #fff;
+  margin-left: -3px;
+  margin-top: -3px;
+      transition: 0.3s linear;
+}
+.main-section.active #sidebarCollapse svg {
+    transform: rotate(270deg);
+      margin-left: 1px;
+        margin-top: -3px;
+}
+
+.main-section .nav-box .logo-img{
+  width: 120px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+.main-section.active .nav-box .logo-img{
+  width: 120px;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
+.settings svg ,.log-out svg{
+  fill: #fff;
+  height: 24px;
+  width: 24px;
+}
+
+.profile{
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.profile .user-name{
+  color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 130%;
+}
+.profile img{
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+
+
 
 
 #sidebar {
@@ -146,7 +225,7 @@ body {
 }
 
 .sidebar-header h3 img {
-  width: 45px;
+  width: 70%;
   margin-right: 10px;
 }
 
@@ -464,8 +543,9 @@ body {
 
 @media only screen and (min-width:992px) {
   #sidebar.active {
-    width: 80px;
-    height: 100% !important;
+    display: none;
+    width: 0px;
+    height: 0% !important;
     position: absolute !important;
     overflow: visible !important;
     top: 0 !important;
@@ -487,6 +567,7 @@ body {
   }
 
   #sidebar.active .menu {
+    display: none;
     position: absolute;
     left: 81px;
     background-color: white;
@@ -672,12 +753,13 @@ body {
 .print-btn button {
   border: 1px solid #dedede;
   border-radius: var(--small-border-radius);
-  padding: 12px 18px;
+  padding: 8px 12px;
   color: var(--table-time);
   background-color: transparent;
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
+  border-radius: 6px;
 }
 
 /* breakDown Section Style Here  */
@@ -1221,16 +1303,21 @@ font-size: 16px;
 
   .navi-box {
     height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .more-button img {
     height: 24px;
     width: 24px;
   }
+    .btn:first-child:active{
+      border: none;
+    }
 
   .breakdown-container {
     gap: 18px;
-    /* flex-wrap: wrap; */
   }
 
   .breakdown-box {
@@ -1266,6 +1353,13 @@ font-size: 16px;
     width: 60vw;
     margin: auto;
   }
+
+    .main-section .nav-box .logo-img {
+      width: 120px;
+      display: block;
+      opacity: 1;
+      transition: opacity 0.5s linear;
+    }
 }
 
 @media screen and (max-width: 767px) {

@@ -6,7 +6,7 @@ $(document).ready(function () {
         begin: moment().set({ date: 1 }).format("YYYY-MM-DD"),
         end: moment()
           .set({ hour: 23, minute: 59, second: 59 })
-          .format("YYYY-MM-DD"),
+          .format("DD-MM-YYYY"),
       };
     },
     shortcutMonth: function () {
@@ -100,18 +100,16 @@ $(document).ready(function () {
     ],
   };
 
-
-
   $(".J-datepicker-range-day").datePicker({
     language: "en",
     hasShortcut: true,
     showMonths: 1,
-    format: "YYYY-MM-DD",
+    format: "DD-MM-YYYY",
     isRange: true,
     between: "month",
     shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
     hide: function () {
-    const start = $(this).Val();
+      const start = $(this).Val();
       console.log(start);
       console.log("its working 2");
     },
@@ -135,35 +133,142 @@ $(document).ready(function () {
       const start = $(".start").val();
       const end = $(".end").val();
 
-
-      let startDateShow = document.getElementById("SDate");
-      let endDateShow = document.getElementById("EDate");
+      let startDateShow = document.getElementById("CraneSDate");
+      let endDateShow = document.getElementById("CraneEDate");
       console.log(startDateShow, endDateShow);
       startDateShow.innerText = start.toString();
       endDateShow.innerText = end.toString();
       console.log(start, end);
       var modal = document.getElementById("crane-weekly-chart");
-          modal.style.display = "block";
+      modal.style.display = "block";
 
-          // Add event listener to close the modal
-          // var closeBtn = modal.querySelector(".close");
-          // closeBtn.addEventListener("click", function () {
-          //   modal.style.display = "none";
-          // });
+      // Add event listener to close the modal
+      var closeBtn = modal.querySelector(".btn-close");
+      closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
       window.addEventListener("click", function (event) {
         if (event.target === modal) {
           modal.style.display = "none";
         }
-      })
+      });
     },
     show: function () {
-      // const start = $(this).val();
-      // console.log(start);
+      console.log("its working");
+    },
+  });
+  $(".custom-date-breakdown2").datePicker({
+    language: "en",
+    isRange: true,
+    hasShortcut: true,
+    showMonths: 1,
+    format: "YYYY-MM-DD",
+    isRange: true,
+    between: "month",
+    shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
+    hide: function () {
+      const start = $(".start2").val();
+      const end = $(".end2").val();
+      console.log(start, end);
+      let startDateShow = document.getElementById("generatorSDate");
+      let endDateShow = document.getElementById("generatorEDate");
+      console.log(startDateShow, endDateShow);
+      startDateShow.innerText = start.toString();
+      endDateShow.innerText = end.toString();
+
+      var modal = document.getElementById("generator-weekly-chart");
+      modal.style.display = "block";
+
+      // Add event listener to close the modal
+      var closeBtn = modal.querySelector(".btn-close");
+      closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+      window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    },
+    show: function () {
+      console.log("its working");
+    },
+  });
+  $(".custom-date-breakdown3").datePicker({
+    language: "en",
+    isRange: true,
+    hasShortcut: true,
+    showMonths: 1,
+    format: "YYYY-MM-DD",
+    isRange: true,
+    between: "month",
+    shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
+    hide: function () {
+      const start = $(".start3").val();
+      const end = $(".end3").val();
+
+      let startDateShow = document.getElementById("engineSDate");
+      let endDateShow = document.getElementById("engineEDate");
+      console.log(startDateShow, endDateShow);
+      startDateShow.innerText = start.toString();
+      endDateShow.innerText = end.toString();
+      console.log(start, end);
+      var modal = document.getElementById("engine-weekly-chart");
+      modal.style.display = "block";
+
+      // Add event listener to close the modal
+      var closeBtn = modal.querySelector(".btn-close");
+      closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+      window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    },
+    show: function () {
+      console.log("its working");
+    },
+  });
+  $(".custom-date-breakdown4").datePicker({
+    language: "en",
+    isRange: true,
+    hasShortcut: true,
+    showMonths: 1,
+    format: "YYYY-MM-DD",
+    isRange: true,
+    between: "month",
+    shortcutOptions: DATAPICKERAPI.rangeShortcutOption1,
+    hide: function () {
+      const start = $(".start4").val();
+      const end = $(".end4").val();
+
+      let startDateShow = document.getElementById("otherSDate");
+      let endDateShow = document.getElementById("otherEDate");
+      console.log(startDateShow, endDateShow);
+      startDateShow.innerText = start.toString();
+      endDateShow.innerText = end.toString();
+      console.log(start, end);
+      var modal = document.getElementById("other-weekly-chart");
+      modal.style.display = "block";
+
+      // Add event listener to close the modal
+      var closeBtn = modal.querySelector(".btn-close");
+      closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+      window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    },
+    show: function () {
       console.log("its working");
     },
   });
 });
-
 
 
 // Crane Chart data
@@ -176,37 +281,30 @@ $(document).ready(function () {
           {
             x: "M.V Jawad",
             y: [3, 7],
-            gradientColor: ["red", "yellow"],
           },
           {
             x: "M.V Nasir",
             y: [9, 11],
-            gradientColor: ["green", "cyan"],
           },
           {
             x: "M.V Awal",
             y: [16, 23],
-            gradientColor: ["blue", "purple"],
           },
           {
             x: "M.V Sahin",
             y: [18, 19],
-            gradientColor: ["red", "yellow"],
           },
           {
             x: "M.V Jawad",
             y: [9, 13],
-            gradientColor: ["red", "yellow"],
           },
           {
             x: "M.V Nasir",
             y: [15, 18],
-            gradientColor: ["green", "cyan"],
           },
           {
             x: "M.V Sahin",
             y: [7, 14],
-            gradientColor: ["red", "yellow"],
           },
         ],
       },
@@ -301,6 +399,19 @@ $(document).ready(function () {
     },
     tooltip: {
       enabled: true,
+      // x: {
+      //   show: true,
+      //   formatter: function (value) {
+      //     // console.log(value[1] - value[0]);
+      //     return value;
+      //   },
+      // },
+      // y: {
+      //   show: true,
+      //   formatter: function (value) {
+      //     return value;
+      //   },
+      // },
       grid: {
         show: true,
         borderColor: "#f0f0f0",
@@ -308,6 +419,7 @@ $(document).ready(function () {
         position: "back",
         xaxis: {
           formatter: function (value) {
+            console.log(value);
             return "X-Axis Label: " + value;
           },
           lines: {
@@ -327,20 +439,6 @@ $(document).ready(function () {
         },
       },
     },
-    // states: {
-    //   normal: {
-    //     filter: {
-    //       type: "none",
-    //       value: 0,
-    //     },
-    //   },
-    //   hover: {
-    //     filter: {
-    //       type: "darken",
-    //       value: 0.15,
-    //     },
-    //   },
-    // },
     autoSelected: false,
   };
 
@@ -911,13 +1009,16 @@ $(document).ready(function () {
 //   printWindow.close();
 // }
 
+//Print js here
 $(document).ready(function () {
   $(".breakdown-chart #printButton").click(function () {
-    var printContents = $("#print-content").html();
-    var originalContents = $("body").html();
-    $("body").empty().html(printContents);
-    window.print();
-    $("body").html(originalContents);
+  //   var printContents = $("#print-content").html();
+  //   var originalContents = $("body").html();
+  //   $("body").empty().html(printContents);
+  //   window.print();
+  //   $("body").html(originalContents);
+  window.print();
+
   });
 
   $("#Total-repair #printButton").click(function () {
@@ -942,12 +1043,15 @@ $(document).ready(function () {
 // navigation buttons
 
 $(document).ready(function () {
+  $("#sidebarCollapse").on("click", function () {
+    $("#sidebar").toggleClass("active");
+    $(".main-section").toggleClass("active");
+  });
+
   $(".more-button, .body-overlay").on("click", function () {
     $("#sidebar, .body-overlay").toggleClass("show-nav");
   });
 });
-
-
 
 //Crane Chart modal
 $(document).ready(function () {
@@ -986,7 +1090,7 @@ $(document).ready(function () {
       stacked: true,
       // stackType: '100%',
       events: {
-        click: function (chart, w, e) { },
+        click: function (chart, w, e) {},
       },
     },
     plotOptions: {
@@ -1033,7 +1137,10 @@ $(document).ready(function () {
     },
   };
 
-  var modalChart = new ApexCharts(document.querySelector("#modalChart"), options);
+  var modalChart = new ApexCharts(
+    document.querySelector("#modalChart"),
+    options
+  );
   modalChart.render();
 });
 
@@ -1074,7 +1181,7 @@ $(document).ready(function () {
       stacked: true,
       // stackType: '100%',
       events: {
-        click: function (chart, w, e) { },
+        click: function (chart, w, e) {},
       },
     },
     plotOptions: {
@@ -1128,7 +1235,6 @@ $(document).ready(function () {
   innerGeneratorModal.render();
 });
 
-
 //Main Engine Chart Modal
 $(document).ready(function () {
   var options = {
@@ -1166,7 +1272,7 @@ $(document).ready(function () {
       stacked: true,
       // stackType: '100%',
       events: {
-        click: function (chart, w, e) { },
+        click: function (chart, w, e) {},
       },
     },
     plotOptions: {
@@ -1220,7 +1326,6 @@ $(document).ready(function () {
   innerMainEngineModal.render();
 });
 
-
 //Other Chart Modal
 $(document).ready(function () {
   var options = {
@@ -1258,7 +1363,7 @@ $(document).ready(function () {
       stacked: true,
       // stackType: '100%',
       events: {
-        click: function (chart, w, e) { },
+        click: function (chart, w, e) {},
       },
     },
     plotOptions: {
@@ -1312,8 +1417,7 @@ $(document).ready(function () {
   innerOtherChart.render();
 });
 
-
-//weekly or selected date Chart Modal
+//weekly or selected crane date Chart Modal
 $(document).ready(function () {
   var options = {
     // HoistingWire: [
@@ -1350,7 +1454,7 @@ $(document).ready(function () {
       stacked: true,
       // stackType: '100%',
       events: {
-        click: function (chart, w, e) { },
+        click: function (chart, w, e) {},
       },
     },
     plotOptions: {
@@ -1397,12 +1501,279 @@ $(document).ready(function () {
     },
   };
 
-  var weeklyChart = new ApexCharts(
-    document.querySelector("#weeklyChart"),
+  var weeklyChartCrane = new ApexCharts(
+    document.querySelector("#weeklyChartCrane"),
     options
   );
-  weeklyChart.render();
+  weeklyChartCrane.render();
 });
+//weekly or selected Generator date Chart Modal
+$(document).ready(function () {
+  var options = {
+    // HoistingWire: [
+    //   {
+    //     data: [0.3, 2, 1, 0.8],
+    //   },
+    // ],
+    // LuffingWire: [
+    //   {
+    //     data: [0.5, 1.3, 2, 1],
+    //   },
+    // ],
 
+    series: [
+      {
+        name: "Hoisting Wire",
+        data: [0.3, 2, 1, 0.8],
+      },
+      {
+        name: "Luffing Wire",
+        data: [0.5, 1.3, 2, 1],
+      },
+    ],
+    tooltip: {
+      enabled: true,
+      formatter: function (val, opts) {
+        // Modify the tooltip content here
+        return "Custom Tooltip: " + val;
+      },
+    },
+    chart: {
+      height: 350,
+      type: "bar",
+      stacked: true,
+      // stackType: '100%',
+      events: {
+        click: function (chart, w, e) {},
+      },
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "60%",
+        distributed: true,
+      },
+      dataLabels: {
+        position: "top", // Position the labels above the columns
+        formatter: function (val, opts) {
+          const colors = ["#ff0000", "#00ff00", "#0000ff"]; // Array of colors for each data point
+          const colorIndex = opts.dataPointIndex; // Get the index of the data point
+          opts.w.config.chart.colors = colors; // Assign the colors array to the chart configuration
+          return val; // Return the original value for the label
+        },
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      show: false,
+    },
+    xaxis: {
+      categories: ["MV Sahin", " MV Awal", "Mv Nasir", "MV Jawad"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+      },
+    },
+    yaxis: {
+      categories: ["30Min", "1hr", "1.30hr", "2hr"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+        // title: {
+        //   text: "hrs",
+        // },
+      },
+    },
+  };
 
+  var weeklyChartGenerator = new ApexCharts(
+    document.querySelector("#weeklyChartGenerator"),
+    options
+  );
+  weeklyChartGenerator.render();
+});
+//weekly or selected Engine date Chart Modal
+$(document).ready(function () {
+  var options = {
+    // HoistingWire: [
+    //   {
+    //     data: [0.3, 2, 1, 0.8],
+    //   },
+    // ],
+    // LuffingWire: [
+    //   {
+    //     data: [0.5, 1.3, 2, 1],
+    //   },
+    // ],
 
+    series: [
+      {
+        name: "Hoisting Wire",
+        data: [0.3, 2, 1, 0.8],
+      },
+      {
+        name: "Luffing Wire",
+        data: [0.5, 1.3, 2, 1],
+      },
+    ],
+    tooltip: {
+      enabled: true,
+      formatter: function (val, opts) {
+        // Modify the tooltip content here
+        return "Custom Tooltip: " + val;
+      },
+    },
+    chart: {
+      height: 350,
+      type: "bar",
+      stacked: true,
+      // stackType: '100%',
+      events: {
+        click: function (chart, w, e) {},
+      },
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "60%",
+        distributed: true,
+      },
+      dataLabels: {
+        position: "top", // Position the labels above the columns
+        formatter: function (val, opts) {
+          const colors = ["#ff0000", "#00ff00", "#0000ff"]; // Array of colors for each data point
+          const colorIndex = opts.dataPointIndex; // Get the index of the data point
+          opts.w.config.chart.colors = colors; // Assign the colors array to the chart configuration
+          return val; // Return the original value for the label
+        },
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      show: false,
+    },
+    xaxis: {
+      categories: ["MV Sahin", " MV Awal", "Mv Nasir", "MV Jawad"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+      },
+    },
+    yaxis: {
+      categories: ["30Min", "1hr", "1.30hr", "2hr"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+        // title: {
+        //   text: "hrs",
+        // },
+      },
+    },
+  };
+
+  var weeklyChartEngine = new ApexCharts(
+    document.querySelector("#weeklyChartEngine"),
+    options
+  );
+  weeklyChartEngine.render();
+});
+//weekly or selected Others date Chart Modal
+$(document).ready(function () {
+  var options = {
+    // HoistingWire: [
+    //   {
+    //     data: [0.3, 2, 1, 0.8],
+    //   },
+    // ],
+    // LuffingWire: [
+    //   {
+    //     data: [0.5, 1.3, 2, 1],
+    //   },
+    // ],
+
+    series: [
+      {
+        name: "Hoisting Wire",
+        data: [0.3, 2, 1, 0.8],
+      },
+      {
+        name: "Luffing Wire",
+        data: [0.5, 1.3, 2, 1],
+      },
+    ],
+    tooltip: {
+      enabled: true,
+      formatter: function (val, opts) {
+        // Modify the tooltip content here
+        return "Custom Tooltip: " + val;
+      },
+    },
+    chart: {
+      height: 350,
+      type: "bar",
+      stacked: true,
+      // stackType: '100%',
+      events: {
+        click: function (chart, w, e) {},
+      },
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "60%",
+        distributed: true,
+      },
+      dataLabels: {
+        position: "top", // Position the labels above the columns
+        formatter: function (val, opts) {
+          const colors = ["#ff0000", "#00ff00", "#0000ff"]; // Array of colors for each data point
+          const colorIndex = opts.dataPointIndex; // Get the index of the data point
+          opts.w.config.chart.colors = colors; // Assign the colors array to the chart configuration
+          return val; // Return the original value for the label
+        },
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      show: false,
+    },
+    xaxis: {
+      categories: ["MV Sahin", " MV Awal", "Mv Nasir", "MV Jawad"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+      },
+    },
+    yaxis: {
+      categories: ["30Min", "1hr", "1.30hr", "2hr"],
+      labels: {
+        style: {
+          // colors: colors,
+          fontSize: "12px",
+        },
+        // title: {
+        //   text: "hrs",
+        // },
+      },
+    },
+  };
+
+  var weeklyChartOther = new ApexCharts(
+    document.querySelector("#weeklyChartOther"),
+    options
+  );
+  weeklyChartOther.render();
+});
