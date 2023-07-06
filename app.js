@@ -355,6 +355,19 @@ $(document).ready(function () {
         },
       },
     },
+    colors: [
+      // this array contains different color code for each data
+      "#F06B41",
+      "#F0DE42",
+      "#93F042",
+      "#42F0B9",
+      "#42BCF0",
+      "#4251F0",
+      "#7942F0",
+      "#C342F0",
+      "#F042CA",
+      "#F04242",
+    ],
     xaxis: {
       type: "numeric",
       min: 0,
@@ -374,24 +387,24 @@ $(document).ready(function () {
       width: 0,
     },
     fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 0.5,
-        opacityTo: 1,
-        colorStops: [
-          {
-            offset: 0,
-            color: "#F46152  ",
-            opacity: 1,
-          },
-          {
-            offset: 100,
-            color: "#D33728 ",
-            opacity: 1,
-          },
-        ],
-      },
+      type: "color",
+      // gradient: {
+      //   shadeIntensity: 1,
+      //   opacityFrom: 0.5,
+      //   opacityTo: 1,
+      //   colorStops: [
+      //     {
+      //       offset: 0,
+      //       color: "#F46152  ",
+      //       opacity: 1,
+      //     },
+      //     {
+      //       offset: 100,
+      //       color: "#D33728 ",
+      //       opacity: 1,
+      //     },
+      //   ],
+      // },
     },
     legend: {
       position: "top",
@@ -417,6 +430,12 @@ $(document).ready(function () {
         borderColor: "#f0f0f0",
         strokeDashArray: 0,
         position: "back",
+        // column: {
+        //   colors: ["#F44336", "#E91E63", "#9C27B0"],
+        // },
+        // row: {
+        //   color: ["#F44336", "#E91E63", "#9C27B0"],
+        // },
         xaxis: {
           formatter: function (value) {
             console.log(value);
@@ -536,6 +555,19 @@ $(document).ready(function () {
         distributed: true,
       },
     },
+    colors: [
+      // this array contains different color code for each data
+      "#F06B41",
+      "#F0DE42",
+      "#93F042",
+      "#42F0B9",
+      "#42BCF0",
+      "#4251F0",
+      "#7942F0",
+      "#C342F0",
+      "#F042CA",
+      "#F04242",
+    ],
     xaxis: {
       type: "numeric",
       min: 0,
@@ -566,24 +598,24 @@ $(document).ready(function () {
       width: 0,
     },
     fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 0.5,
-        opacityTo: 1,
-        colorStops: [
-          {
-            offset: 0,
-            color: "#F46152  ",
-            opacity: 1,
-          },
-          {
-            offset: 100,
-            color: "#D33728 ",
-            opacity: 1,
-          },
-        ],
-      },
+      type: "solid",
+      // gradient: {
+      //   shadeIntensity: 1,
+      //   opacityFrom: 0.5,
+      //   opacityTo: 1,
+      //   colorStops: [
+      //     {
+      //       offset: 0,
+      //       color: "#F46152  ",
+      //       opacity: 1,
+      //     },
+      //     {
+      //       offset: 100,
+      //       color: "#D33728 ",
+      //       opacity: 1,
+      //     },
+      //   ],
+      // },
     },
     legend: {
       position: "top",
@@ -714,6 +746,19 @@ $(document).ready(function () {
         distributed: true,
       },
     },
+    colors: [
+      // this array contains different color code for each data
+      "#F06B41",
+      "#F0DE42",
+      "#93F042",
+      "#42F0B9",
+      "#42BCF0",
+      "#4251F0",
+      "#7942F0",
+      "#C342F0",
+      "#F042CA",
+      "#F04242",
+    ],
     xaxis: {
       type: "numeric",
       min: 0,
@@ -733,24 +778,24 @@ $(document).ready(function () {
       width: 0,
     },
     fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 0.5,
-        opacityTo: 1,
-        colorStops: [
-          {
-            offset: 0,
-            color: "#F46152  ",
-            opacity: 1,
-          },
-          {
-            offset: 100,
-            color: "#D33728 ",
-            opacity: 1,
-          },
-        ],
-      },
+      type: "solid",
+      // gradient: {
+      //   shadeIntensity: 1,
+      //   opacityFrom: 0.5,
+      //   opacityTo: 1,
+      //   colorStops: [
+      //     {
+      //       offset: 0,
+      //       color: "#F46152  ",
+      //       opacity: 1,
+      //     },
+      //     {
+      //       offset: 100,
+      //       color: "#D33728 ",
+      //       opacity: 1,
+      //     },
+      //   ],
+      // },
     },
     legend: {
       position: "top",
@@ -881,6 +926,19 @@ $(document).ready(function () {
         distributed: true,
       },
     },
+    colors: [
+      // this array contains different color code for each data
+      "#F06B41",
+      "#F0DE42",
+      "#93F042",
+      "#42F0B9",
+      "#42BCF0",
+      "#4251F0",
+      "#7942F0",
+      "#C342F0",
+      "#F042CA",
+      "#F04242",
+    ],
     xaxis: {
       type: "numeric",
       min: 0,
@@ -900,24 +958,25 @@ $(document).ready(function () {
       width: 0,
     },
     fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 0.5,
-        opacityTo: 1,
-        colorStops: [
-          {
-            offset: 0,
-            color: "#F46152  ",
-            opacity: 1,
-          },
-          {
-            offset: 100,
-            color: "#D33728 ",
-            opacity: 1,
-          },
-        ],
-      },
+      type: "solid",
+      // type: "gradient",
+      // gradient: {
+      //   shadeIntensity: 1,
+      //   opacityFrom: 0.5,
+      //   opacityTo: 1,
+      //   colorStops: [
+      //     {
+      //       offset: 0,
+      //       color: "#F46152  ",
+      //       opacity: 1,
+      //     },
+      //     {
+      //       offset: 100,
+      //       color: "#D33728 ",
+      //       opacity: 1,
+      //     },
+      //   ],
+      // },
     },
     legend: {
       position: "top",
