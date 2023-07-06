@@ -182,12 +182,6 @@ body {
   border-radius: 12px;
 }
 
-/* #sidebar .dropdown-toggle::after {
-  position: absolute;
-  right: 10px;
-  top: 23px;
-} */
-
 #sidebar ul li.dropdown {
   position: sticky;
 }
@@ -341,7 +335,7 @@ body {
   border-radius: 100%;
 }
 
-.dropdown-toggle::after {
+#sidebar .dropdown-toggle::after {
   position: absolute;
   right: 20px;
   top: 30%;
@@ -405,46 +399,46 @@ body {
 
 
 
-.navbar {
+.navigation-section .navbar {
   /* background-color: #2196F3; */
   color: #FFFFFF;
 }
 
-.navbar-brand {
+.navigation-section .navbar-brand {
   color: #FFFFFF;
 }
 
-.navbar button {
+.navigation-section .navbar button {
   background-color: transparent;
   border: none;
 }
 
-.navbar button span {
+.navigation-section .navbar button span {
   color: #000;
 }
 
 
 
-.navbar-nav>li.active {
+.navigation-section .navbar-nav>li.active {
   color: #FFFFFF;
   /* border-radius: 4px; */
   background-color: rgba(0, 0, 0, 0.08);
 }
 
-.navbar-nav>li>a {
+.navigation-section .navbar-nav>li>a {
   color: #FFFFFF;
 }
 
 
 
-.navbar-nav>li.show .dropdown-menu {
+.navigation-section .navbar-nav>li.show .dropdown-menu {
   transform: translate3d(0, 0, 0);
   opacity: 1;
   visibility: visible;
 }
 
 
-.dropdown-menu li>a {
+.navigation-section .dropdown-menu li>a {
   font-size: 13px;
   padding: 10px 20px;
   margin: 0 5px;
@@ -453,13 +447,13 @@ body {
   transition: all 150ms linear;
 }
 
-.navbar-nav>.active>a:focus {
+.navigation-section .navbar-nav>.active>a:focus {
   color: #FFFFFF;
   background-color: rgba(0, 0, 0, 0.08);
 }
 
 
-.navbar-nav li a {
+.navigation-section .navbar-nav li a {
   position: relative;
   display: block;
   padding: 10px 15px !important;
@@ -492,11 +486,6 @@ body {
     transition: all 0.5s ease;
   }
 
-  #sidebar.active .dropdown-toggle::after {
-    display: none;
-    transition: all 0.5s ease;
-  }
-
   #sidebar.active .menu {
     position: absolute;
     left: 81px;
@@ -511,7 +500,7 @@ body {
 }
 
 @media only screen and (min-width:992px) {
-  .dropdown-menu {
+  .navigation-section .dropdown-menu {
     border: 0;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 26%);
     transform: translate3d(0, -20px, 0);
@@ -650,19 +639,22 @@ body {
 .breakdown-box:hover .breakDown-box-heading,
 .breakdown-box:hover .breakDown-box-subHeading,
 .breakdown-box.active .breakDown-box-heading,
-.breakdown-box.active .breakDown-box-subHeading{
+.breakdown-box.active .breakDown-box-subHeading {
   color: var(--box-hover-title-color);
 }
 
-.breakdown-box:hover .breakDown-box-hours, .breakdown-box.active .breakDown-box-hours {
+.breakdown-box:hover .breakDown-box-hours,
+.breakdown-box.active .breakDown-box-hours {
   color: var(--white);
 }
 
-.breakdown-box:hover .icon , .breakdown-box.active .icon{
+.breakdown-box:hover .icon,
+.breakdown-box.active .icon {
   background-color: var(--icon-hover-background);
 }
 
-.breakdown-box:hover .icon svg , .breakdown-box.active .icon svg{
+.breakdown-box:hover .icon svg,
+.breakdown-box.active .icon svg {
   fill: var(--white);
 }
 
@@ -767,6 +759,11 @@ body {
   color: var(--table-time);
 }
 
+.manPower {
+  color: var(--blue-color) !important;
+  cursor: pointer;
+}
+
 .breakdown-chart {
   background-color: var(--white);
   border-radius: var(--large-border-radius);
@@ -801,6 +798,7 @@ body {
 .grabs-timeline .header-box .right {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .grabs-timeline .header-box .right .sl-no .btn {
@@ -1047,15 +1045,81 @@ body {
   color: var(--dark-color);
 }
 
-#graphModal .modal-dialog, #generatorModal .modal-dialog, #mainEngineModal .modal-dialog, #otherChartModal .modal-dialog{
+#manPowerModal .modal-dialog {
+  max-width: 30vw;
+  width: 30vw;
+  margin: auto;
+}
+
+#manPowerModal table {
+  border-radius: 6px;
+  background-color: red!important;
+  border-collapse: separate !important;
+    border-spacing: 0;
+}
+#manPowerModal .table{
+  border-radius: 6px;
+}
+
+
+#manPowerModal .modal-header .btn-close{
+    font-size: 16px;
+padding: 0;
+margin: 0;
+
+}
+#manPowerModal table th{
+  /* border-radius: 50px; */
+  background-color: var(--blue-color);
+  font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: var(--white);
+}
+#manPowerModal table td{
+font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color:#757575;
+}
+#manPowerModal table tbody tr{
+  border: none;
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+}
+#manPowerModal table tbody tr:first-child th {
+  border-radius: 6px 0px 0px 0px!important;
+}
+#manPowerModal table tbody tr:first-child td {
+  border-radius: 0px 6px 0px 0px!important;
+}
+#manPowerModal table tbody tr:last-child th {
+  border-radius: 0px 0px 0px 6px!important;
+}
+#manPowerModal table tbody tr:last-child td {
+  border-radius: 0px 0px 6px 0px!important;
+}
+
+
+
+#graphModal .modal-dialog,
+#generatorModal .modal-dialog,
+#mainEngineModal .modal-dialog,
+#otherChartModal .modal-dialog {
   max-width: 40vw;
   width: 40vw;
   margin: auto;
 }
-#myModal2 .modal-dialog , #myModal3 .modal-dialog , #myModal4 .modal-dialog{
+
+#myModal2 .modal-dialog,
+#myModal3 .modal-dialog,
+#myModal4 .modal-dialog {
   max-width: 50vw;
-    width: 50vw;
-    margin: auto;
+  width: 50vw;
+  margin: auto;
 }
 
 @media screen and (max-width: 1440px) {
@@ -1124,13 +1188,20 @@ body {
   .life-history .header-box {
     flex-direction: column;
   }
-#myModal2 .modal-dialog,
-#myModal3 .modal-dialog,
-#myModal4 .modal-dialog {
-      max-width: 65vw;
-      width: 65vw;
-      margin: auto;
-    }
+
+  #myModal2 .modal-dialog,
+  #myModal3 .modal-dialog,
+  #myModal4 .modal-dialog {
+    max-width: 65vw;
+    width: 65vw;
+    margin: auto;
+  }
+
+  #manPowerModal .modal-dialog {
+    max-width: 40vw;
+    width: 40vw;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -1158,7 +1229,7 @@ body {
   }
 
   .breakdown-container {
-    gap: 20px;
+    gap: 18px;
     /* flex-wrap: wrap; */
   }
 
@@ -1173,21 +1244,28 @@ body {
     transform: translate(-25%, -50%) !important;
   }
 
-#graphModal .modal-dialog,
-#generatorModal .modal-dialog,
-#mainEngineModal .modal-dialog,
-#otherChartModal .modal-dialog {
+  #graphModal .modal-dialog,
+  #generatorModal .modal-dialog,
+  #mainEngineModal .modal-dialog,
+  #otherChartModal .modal-dialog {
     max-width: 60vw;
     width: 60vw;
     margin: auto;
   }
-#myModal2 .modal-dialog,
-#myModal3 .modal-dialog,
-#myModal4 .modal-dialog {
-      max-width: 80vw;
-      width: 80vw;
-      margin: auto;
-    }
+
+  #myModal2 .modal-dialog,
+  #myModal3 .modal-dialog,
+  #myModal4 .modal-dialog {
+    max-width: 80vw;
+    width: 80vw;
+    margin: auto;
+  }
+
+  #manPowerModal .modal-dialog {
+    max-width: 60vw;
+    width: 60vw;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1228,6 +1306,7 @@ body {
   .print-btn {
     display: flex;
     column-gap: 10px;
+    align-items: center;
   }
 
   .breakDown-box-subHeading {
@@ -1279,21 +1358,28 @@ body {
     table-layout: auto !important;
   }
 
-#graphModal .modal-dialog,
-#generatorModal .modal-dialog,
-#mainEngineModal .modal-dialog,
-#otherChartModal .modal-dialog {
+  #graphModal .modal-dialog,
+  #generatorModal .modal-dialog,
+  #mainEngineModal .modal-dialog,
+  #otherChartModal .modal-dialog {
     max-width: 80vw;
     width: 80vw;
     margin: auto;
   }
-#myModal2 .modal-dialog,
-#myModal3 .modal-dialog,
-#myModal4 .modal-dialog {
-      max-width: 90vw;
-      width: 90vw;
-      margin: auto;
-    }
+
+  #myModal2 .modal-dialog,
+  #myModal3 .modal-dialog,
+  #myModal4 .modal-dialog {
+    max-width: 90vw;
+    width: 90vw;
+    margin: auto;
+  }
+
+  #manPowerModal .modal-dialog {
+    max-width: 90vw;
+    width: 90vw;
+    margin: auto;
+  }
 }
 
 .modal-dialog {

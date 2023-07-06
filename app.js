@@ -228,10 +228,10 @@ $(document).ready(function () {
           modal.style.display = "block";
 
           // Add event listener to close the modal
-          // var closeBtn = modal.querySelector(".close");
-          // closeBtn.addEventListener("click", function () {
-          //   modal.style.display = "none";
-          // });
+          var closeBtn = modal.querySelector(".btn-close");
+          closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+          });
           window.addEventListener("click", function (event) {
             if (event.target === modal) {
               modal.style.display = "none";
@@ -417,10 +417,10 @@ $(document).ready(function () {
           modal.style.display = "block";
 
           // Add event listener to close the modal
-          // let closeBtn = modal.querySelector(".close");
-          // closeBtn.addEventListener("click", function () {
-          //   modal.style.display = "none";
-          // });
+          let closeBtn = modal.querySelector(".btn-close");
+          closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+          });
           window.addEventListener("click", function (event) {
             if (event.target === modal) {
               modal.style.display = "none";
@@ -595,10 +595,10 @@ $(document).ready(function () {
           modal.style.display = "block";
 
           // Add event listener to close the modal
-          // let closeBtn = modal.querySelector(".close");
-          // closeBtn.addEventListener("click", function () {
-          //   modal.style.display = "none";
-          // });
+          let closeBtn = modal.querySelector(".btn-close");
+          closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+          });
           window.addEventListener("click", function (event) {
             if (event.target === modal) {
               modal.style.display = "none";
@@ -762,10 +762,10 @@ $(document).ready(function () {
           modal.style.display = "block";
 
           // Add event listener to close the modal
-          // let closeBtn = modal.querySelector(".close");
-          // closeBtn.addEventListener("click", function () {
-          //   modal.style.display = "none";
-          // });
+          let closeBtn = modal.querySelector(".btn-close");
+          closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+          });
           window.addEventListener("click", function (event) {
             if (event.target === modal) {
               modal.style.display = "none";
@@ -920,8 +920,6 @@ $(document).ready(function () {
     $("body").html(originalContents);
   });
 
-
-
   $("#Total-repair #printButton").click(function () {
     var printContents = $("#Total-repair-content").html();
     var originalContents = $("body").html();
@@ -930,9 +928,6 @@ $(document).ready(function () {
     window.print();
     $("body").html(originalContents);
   });
-
-
-
 
   $("#total-repair-button").click(function () {
     var printContents = $("#Total-grabs-content").html();
@@ -943,10 +938,6 @@ $(document).ready(function () {
     $("body").html(originalContents);
   });
 });
-
-
-
-
 
 // navigation buttons
 
@@ -1320,8 +1311,6 @@ $(document).ready(function () {
   );
   innerOtherChart.render();
 });
-
-
 
 
 //weekly or selected date Chart Modal
