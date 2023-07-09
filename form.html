@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship Management</title>
+    <!-- bootstrap css link  -->
+    <link rel="stylesheet" href="./Assets/includes/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./Assets/includes/date-picker/datepicker.css">
+    <link rel="stylesheet" href="./style.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet"> -->
+
+</head>
+
+<body>
+    <main class="">
+        <div class="main-container">
+
+            <!-- <h2>Pranto mridha</h2> -->
+            <div class="navigation-section">
+
+                <!-- <h2 class="bg-primary">Navigation</h2> -->
+                <nav id="sidebar">
+                    <div class="sidebar-header">
+                        <h3><img src="./Assets/Image/ship-co1.svg" class="img-fluid" /><span></span></h3>
+                    </div>
+                    <ul class="list-unstyled components">
+                        <li class="dropdown active">
+                            <a href="./index.html" data-bs-toggle="collapse" data-bs-target="#pageSubmenu2"
+                                aria-expanded="true" class="dropdown-toggle"><span>
+                                    <svg height="512" viewBox="0 0 512 512" width="512"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m197.332031 0h-160c-20.585937 0-37.332031 16.746094-37.332031 37.332031v96c0 20.589844 16.746094 37.335938 37.332031 37.335938h160c20.589844 0 37.335938-16.746094 37.335938-37.335938v-96c0-20.585937-16.746094-37.332031-37.335938-37.332031zm0 0" />
+                                        <path
+                                            d="m197.332031 213.332031h-160c-20.585937 0-37.332031 16.746094-37.332031 37.335938v224c0 20.585937 16.746094 37.332031 37.332031 37.332031h160c20.589844 0 37.335938-16.746094 37.335938-37.332031v-224c0-20.589844-16.746094-37.335938-37.335938-37.335938zm0 0" />
+                                        <path
+                                            d="m474.667969 341.332031h-160c-20.589844 0-37.335938 16.746094-37.335938 37.335938v96c0 20.585937 16.746094 37.332031 37.335938 37.332031h160c20.585937 0 37.332031-16.746094 37.332031-37.332031v-96c0-20.589844-16.746094-37.335938-37.332031-37.335938zm0 0" />
+                                        <path
+                                            d="m474.667969 0h-160c-20.589844 0-37.335938 16.746094-37.335938 37.332031v224c0 20.589844 16.746094 37.335938 37.335938 37.335938h160c20.585937 0 37.332031-16.746094 37.332031-37.335938v-224c0-20.585937-16.746094-37.332031-37.332031-37.332031zm0 0" />
+                                    </svg><span>Global</span></span><svg class="arrow" version="1.1" id="Capa_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    x="0px" y="0px" width="10px" height="10px" viewBox="0 0 451.847 451.847"
+                                    style="enable-background:new 0 0 451.847 451.847;" xml:space="preserve">
+                                    <g>
+                                        <path
+                                            d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                                                                                                        		c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                                                                                                        		c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z" />
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                </svg></a>
+                            <ul class="collapse list-unstyled menu show" id="pageSubmenu2">
+                                <li>
+                                    <a href="./index.html#breakdown-History">Breakdown History</a>
+                                </li>
+                                <li>
+                                    <a href="#">Breakdown Analytics</a>
+                                </li>
+                                <li>
+                                    <a href="./index.html#Grabs-Information">Grabs Information</a>
+                                </li>
+                                <li>
+                                    <a href="./index.html#Grabs-timeline">Grabs Timeline</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown">
+                            <a href="#homeSubmenu1" data-bs-toggle="collapse" data-bs-target="#homeSubmenu1"
+                                aria-expanded="false" class="dropdown-toggle">
+                                <span>
+                                    <svg id="Capa_1" enable-background="new 0 0 512 512" height="512"
+                                        viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path
+                                                d="m301.213 58.168c0-14.278-11.616-25.894-25.894-25.894h-38.639c-14.278 0-25.894 11.616-25.894 25.894v38.713h90.427z" />
+                                            <path
+                                                d="m259.792 194.274 150.095 39.218v-96.789c0-5.416-4.406-9.822-9.822-9.822h-288.129c-5.416 0-9.822 4.406-9.822 9.822v96.789l150.095-39.218c2.485-.649 5.097-.649 7.583 0z" />
+                                            <path
+                                                d="m497 449.725c-16.555 0-24.023-3.719-33.479-8.428-4.439-2.21-9.12-4.541-14.706-6.526-7.755-2.757-17.259-4.848-30.282-5.031l54.92-138.253c1.216-3.283.244-6.016-.449-7.359-.698-1.354-2.381-3.759-5.814-4.656l-211.19-55.181-211.189 55.181c-3.434.897-5.117 3.302-5.814 4.656-.693 1.344-1.666 4.08-.447 7.364l54.797 138.25c-13.018.196-22.512 2.3-30.262 5.067-5.539 1.977-10.19 4.292-14.601 6.489-9.457 4.708-16.926 8.428-33.483 8.428-8.284 0-15 6.716-15 15s6.716 15 15 15c23.612 0 35.96-6.148 46.854-11.572 4.245-2.113 8.094-4.023 12.539-5.491 5.459-1.803 11.818-2.936 20.944-2.936 2.083 0 4.021.059 5.839.172 12.628.78 19.377 4.14 27.644 8.256 10.894 5.424 23.242 11.572 46.854 11.572 23.611 0 35.958-6.148 46.853-11.572 9.456-4.708 16.925-8.428 33.48-8.428s24.023 3.719 33.479 8.428c10.894 5.424 23.241 11.572 46.852 11.572s35.958-6.148 46.852-11.572c8.293-4.129 15.06-7.496 27.764-8.263 1.782-.107 3.679-.165 5.716-.165 9.026 0 15.344 1.111 20.762 2.88 4.52 1.475 8.417 3.407 12.717 5.548 10.894 5.424 23.241 11.572 46.852 11.572 8.284 0 15-6.716 15-15s-6.718-15.002-15.002-15.002zm-379.677-148.67 134.885-35.244c2.486-.649 5.098-.649 7.584 0l134.885 35.244c8.015 2.094 12.815 10.29 10.721 18.305-1.762 6.744-7.844 11.212-14.502 11.212-1.255 0-2.531-.159-3.802-.491l-131.094-34.253-131.093 34.253c-8.015 2.094-16.211-2.706-18.305-10.721s2.706-16.211 10.721-18.305z" />
+                                        </g>
+                                    </svg><span>Individual Ship</span></span> <svg class="arrow" version="1.1"
+                                    id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px"
+                                    height="10px" viewBox="0 0 451.847 451.847"
+                                    style="enable-background:new 0 0 451.847 451.847;" xml:space="preserve">
+                                    <g>
+                                        <path
+                                            d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                                                                        		c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                                                                        		c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z" />
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                </svg></a>
+                            <ul class="collapse list-unstyled menu" id="homeSubmenu1">
+                                <li class="dropdown">
+                                    <a href="#homeSubmenu2" data-bs-toggle="collapse" data-bs-target="#homeSubmenu2"
+                                        aria-expanded="false" class="dropdown-toggle"><span><img
+                                                src="./Assets/Image/anisul-haq.png" alt="" class="img-fluid">Ansarul
+                                            Hoque</span> <svg version="1.1" id="Capa_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px"
+                                            height="10px" viewBox="0 0 451.847 451.847"
+                                            style="enable-background:new 0 0 451.847 451.847;" xml:space="preserve">
+                                            <g>
+                                                <path
+                                                    d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                                                                                		c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                                                                                		c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z" />
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                        </svg></a>
+                                    <ul class="collapse list-unstyled menu" id="homeSubmenu2">
+                                        <li>
+                                            <a href="#">Jahan Brothers</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">M.V. Nasir</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">M.V Awal</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#homeSubmenu5" data-bs-toggle="collapse" data-bs-target="#homeSubmenu5"
+                                        aria-expanded="false" class="dropdown-toggle"><span><img
+                                                src="./Assets/Image/anisul-haq.png" alt="" class="img-fluid">Imam
+                                            Uddin</span> <svg version="1.1" id="Capa_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px"
+                                            height="10px" viewBox="0 0 451.847 451.847"
+                                            style="enable-background:new 0 0 451.847 451.847;" xml:space="preserve">
+                                            <g>
+                                                <path
+                                                    d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                                                                                		c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                                                                                		c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z" />
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                        </svg></a>
+                                    <ul class="collapse list-unstyled menu" id="homeSubmenu5">
+                                        <li>
+                                            <a href="#">Jahan Brothers</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">M.V. Nasir</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">M.V Awal</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#homeSubmenu3" data-bs-toggle="collapse" data-bs-target="#homeSubmenu3"
+                                        aria-expanded="false" class="dropdown-toggle"><span><img
+                                                src="./Assets/Image/anisul-haq.png" alt="" class="img-fluid">Niaz
+                                            Hossain</span> <svg version="1.1" id="Capa_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px"
+                                            height="10px" viewBox="0 0 451.847 451.847"
+                                            style="enable-background:new 0 0 451.847 451.847;" xml:space="preserve">
+                                            <g>
+                                                <path
+                                                    d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                                                                                		c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                                                                                		c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z" />
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                        </svg></a>
+                                    <ul class="collapse list-unstyled menu" id="homeSubmenu3">
+                                        <li>
+                                            <a href="#">Jahan Brothers</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">M.V. Nasir</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">M.V Awal</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#homeSubmenu6" data-bs-toggle="collapse" data-bs-target="#homeSubmenu6"
+                                        aria-expanded="false" class="dropdown-toggle"><span><img
+                                                src="./Assets/Image/anisul-haq.png" alt="" class="img-fluid">F.M.
+                                            Zukov</span> <svg version="1.1" id="Capa_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px"
+                                            height="10px" viewBox="0 0 451.847 451.847"
+                                            style="enable-background:new 0 0 451.847 451.847;" xml:space="preserve">
+                                            <g>
+                                                <path
+                                                    d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                                        		c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                                        		c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z" />
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                        </svg></a>
+                                    <ul class="collapse list-unstyled menu" id="homeSubmenu6">
+                                        <li>
+                                            <a href="#">Jahan Brothers</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">M.V. Nasir</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">M.V Awal</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#homeSubmenu4" data-bs-toggle="collapse" data-bs-target="#homeSubmenu4"
+                                        aria-expanded="false" class="dropdown-toggle"><span><img
+                                                src="./Assets/Image/anisul-haq.png" alt=""
+                                                class="img-fluid">Mortaza</span> <svg version="1.1" id="Capa_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px"
+                                            height="10px" viewBox="0 0 451.847 451.847"
+                                            style="enable-background:new 0 0 451.847 451.847;" xml:space="preserve">
+                                            <g>
+                                                <path
+                                                    d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                                                                                		c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                                                                                		c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z" />
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                        </svg></a>
+                                    <ul class="collapse list-unstyled menu" id="homeSubmenu4">
+                                        <li>
+                                            <a href="#">Jahan Brothers</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">M.V. Nasir</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">M.V Awal</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="./form.html"><span>
+                                    <span>Form</span></span></a>
+                        </li>
+                        <li class="d-block d-lg-none">
+                            <a href="#"><span>
+                                    <img src="./Assets/Image/anisul-haq.png" alt=""><span>Pranto</span></span></a>
+                        </li>
+                        <li class="d-block d-lg-none">
+                            <a href="#"><span>
+                                    <svg id="Capa_1" enable-background="new 0 0 470.578 470.578" height="512"
+                                        viewBox="0 0 470.578 470.578" width="512" xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path
+                                                d="m470.578 270.353v-70.128l-63.66-13.079c-3.877-13.66-9.329-26.823-16.246-39.224l35.793-54.151-49.657-49.657-54.151 35.793c-12.401-6.918-25.564-12.37-39.224-16.246l-13.08-63.661h-70.128l-13.079 63.66c-13.616 3.878-26.734 9.33-39.087 16.246l-54.288-35.792-49.657 49.657 35.793 54.151c-6.93 12.379-12.34 25.549-16.114 39.224l-63.793 13.079v70.128l63.792 13.073c3.774 13.633 9.185 26.76 16.114 39.092l-35.793 54.289 49.657 49.658 54.289-35.793c12.333 6.93 25.459 12.34 39.092 16.114l13.073 63.792h70.128l13.073-63.792c13.676-3.774 26.846-9.184 39.224-16.114l54.151 35.793 49.658-49.658-35.787-54.289c6.917-12.355 12.369-25.474 16.246-39.092zm-235.237 62.495c-53.88.029-97.582-43.627-97.611-97.507s43.627-97.582 97.507-97.611 97.582 43.627 97.611 97.507c-.022 53.86-43.648 97.532-97.507 97.611z" />
+                                        </g>
+                                    </svg><span>Settings</span></span></a>
+                        </li>
+                        <li class="d-block d-lg-none">
+                            <a href="#"><span>
+                                    <svg id="bold" enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24"
+                                        width="512" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="6" r="5" />
+                                        <path
+                                            d="m13.25 13h-8.5c-2.619 0-4.75 2.131-4.75 4.75v3.5c0 .414.336.75.75.75h16.5c.414 0 .75-.336.75-.75v-3.5c0-2.619-2.131-4.75-4.75-4.75z" />
+                                        <path
+                                            d="m23.761 9.45-3.5-3.25c-.141-.131-.325-.199-.51-.199-.496 0-.751.422-.751.749v2.25h-4c-.553 0-1 .448-1 1s.447 1 1 1h4v2.25c0 .416.338.75.75.75.186 0 .369-.069.511-.2l3.5-3.25c.152-.142.239-.342.239-.55s-.087-.408-.239-.55z" />
+                                    </svg><span>log Out</span></span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-section">
+                <div class="body-overlay"></div>
+                <div class="navi-box">
+                    <div class="nav-box d-flex column-gap-4">
+                        <button type="button" id="sidebarCollapse" class="d-xl-block d-lg-block d-md-mone d-none btn">
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px"
+                                viewBox="0 0 451.847 451.847" style="enable-background:new 0 0 451.847 451.847;"
+                                xml:space="preserve" fill='white'>
+                                <g>
+                                    <path
+                                        d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                        		c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                        		c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z" />
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                            </svg>
+                        </button>
+                        <img src="./Assets/Image/white-shipco.svg" alt="" class="img-fluid logo-img">
+                    </div>
+                    <div class="top-navbar">
+                        <div class="d-none d-lg-block float-end">
+                            <div class="d-flex align-items-center column-gap-4">
+                                <div class="profile">
+                                    <a href="#">
+                                        <img src="./Assets/Image/anisul-haq.png" alt=""></a>
+                                    <a href="#">
+                                        <div class="user-name">Pranto</div>
+                                    </a>
+                                </div>
+                                <div class="settings">
+                                    <a href="#">
+                                        <svg id="Capa_1" enable-background="new 0 0 470.578 470.578" height="512"
+                                            viewBox="0 0 470.578 470.578" width="512"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path
+                                                    d="m470.578 270.353v-70.128l-63.66-13.079c-3.877-13.66-9.329-26.823-16.246-39.224l35.793-54.151-49.657-49.657-54.151 35.793c-12.401-6.918-25.564-12.37-39.224-16.246l-13.08-63.661h-70.128l-13.079 63.66c-13.616 3.878-26.734 9.33-39.087 16.246l-54.288-35.792-49.657 49.657 35.793 54.151c-6.93 12.379-12.34 25.549-16.114 39.224l-63.793 13.079v70.128l63.792 13.073c3.774 13.633 9.185 26.76 16.114 39.092l-35.793 54.289 49.657 49.658 54.289-35.793c12.333 6.93 25.459 12.34 39.092 16.114l13.073 63.792h70.128l13.073-63.792c13.676-3.774 26.846-9.184 39.224-16.114l54.151 35.793 49.658-49.658-35.787-54.289c6.917-12.355 12.369-25.474 16.246-39.092zm-235.237 62.495c-53.88.029-97.582-43.627-97.611-97.507s43.627-97.582 97.507-97.611 97.582 43.627 97.611 97.507c-.022 53.86-43.648 97.532-97.507 97.611z" />
+                                            </g>
+                                        </svg></a>
+                                </div>
+                                <div class="log-out"><a href="#"><svg id="bold" enable-background="new 0 0 24 24"
+                                            height="512" viewBox="0 0 24 24" width="512"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="9" cy="6" r="5" />
+                                            <path
+                                                d="m13.25 13h-8.5c-2.619 0-4.75 2.131-4.75 4.75v3.5c0 .414.336.75.75.75h16.5c.414 0 .75-.336.75-.75v-3.5c0-2.619-2.131-4.75-4.75-4.75z" />
+                                            <path
+                                                d="m23.761 9.45-3.5-3.25c-.141-.131-.325-.199-.51-.199-.496 0-.751.422-.751.749v2.25h-4c-.553 0-1 .448-1 1s.447 1 1 1h4v2.25c0 .416.338.75.75.75.186 0 .369-.069.511-.2l3.5-3.25c.152-.142.239-.342.239-.55s-.087-.408-.239-.55z" />
+                                        </svg></a></div>
+                            </div>
+
+                        </div>
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="container-fluid justify-content-end px-0">
+                                <button class="d-inline-block d-lg-none more-button btn p-0
+                                " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <img src="./Assets/Image/mobile-menu-icon.svg" alt="" class="img-fluid">
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="container">Pranto mridha</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.0/jQuery.print.min.js"></script>
+    <script src="./Assets/includes/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./Assets/includes/date-picker/moment.min.js"></script>
+    <script src="./Assets/includes/date-picker/datepicker.all.min.js"></script>
+    <script src="./Assets/includes/date-picker/datepicker.en.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
