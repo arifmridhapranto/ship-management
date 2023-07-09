@@ -1936,5 +1936,3 @@ const GrabsHistoryHtml = GrabsHistory.map(
 const historyElement = document.getElementById("GrabsLifeHistory");
 console.log(historyElement);
 historyElement.innerHTML = GrabsHistoryHtml;
-
-
