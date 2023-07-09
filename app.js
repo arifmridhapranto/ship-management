@@ -270,7 +270,6 @@ $(document).ready(function () {
   });
 });
 
-
 // Crane Chart data
 
 $(document).ready(function () {
@@ -1041,7 +1040,10 @@ $(document).ready(function () {
 //   myInput.focus();
 // });
 
-// function printFile() {
+// const modalPrint = document.getElementById("CranesprintButton");
+
+// modalPrint.addEventListener("click", function () {
+//   console.log("Print");
 //   var printWindow = window.open("", "_blank");
 //   var printStyles = `
 //     <style>
@@ -1065,37 +1067,42 @@ $(document).ready(function () {
 //   printWindow.document.write("</body></html>");
 
 //   printWindow.print();
-//   printWindow.close();
-// }
+// printWindow.close();
+// });
 
 //Print js here
-$(document).ready(function () {
-  $(".breakdown-chart #printButton").click(function () {
-  //   var printContents = $("#print-content").html();
-  //   var originalContents = $("body").html();
-  //   $("body").empty().html(printContents);
-  //   window.print();
-  //   $("body").html(originalContents);
-  window.print();
-
+jQuery(document).ready(function () {
+  // cranes modal print
+  jQuery("#CranesprintButton").click(function () {
+    jQuery("#myModal").print();
+  });
+  // generator modal print
+  jQuery("#GeneratorprintButton").click(function () {
+    jQuery("#myModal2").print();
   });
 
-  $("#Total-repair #printButton").click(function () {
-    var printContents = $("#Total-repair-content").html();
-    var originalContents = $("body").html();
-
-    $("body").empty().html(printContents);
-    window.print();
-    $("body").html(originalContents);
+  // generator modal print
+  jQuery("#engineprintButton").click(function () {
+    jQuery("#myModal3").print();
   });
-
-  $("#total-repair-button").click(function () {
-    var printContents = $("#Total-grabs-content").html();
-    var originalContents = $("body").html();
-
-    $("body").empty().html(printContents);
-    window.print();
-    $("body").html(originalContents);
+  // generator modal print
+  jQuery("#otherprintButton").click(function () {
+    jQuery("#myModal4").print();
+  });
+  jQuery("#GrabStatusprintButton").click(function () {
+    jQuery("#weekly-grab-status").print();
+  });
+  jQuery("#shoreprintButton").click(function () {
+    jQuery("#weekly-shore-status").print();
+  });
+  jQuery("#manPowerModalButton").click(function () {
+    jQuery("#manPowerModal").print();
+  });
+  jQuery("#total-repair-button").click(function () {
+    jQuery("#Total-repair").print();
+  });
+  jQuery("#Total-grabs-button").click(function () {
+    jQuery("#Total-grabs").print();
   });
 });
 

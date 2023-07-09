@@ -44,7 +44,7 @@ body {
   background-color: var(--main-bg-color);
 }
 
-.c-datepicker-data-input.only-date{
+.c-datepicker-data-input.only-date {
   width: 50px;
 }
 
@@ -86,9 +86,10 @@ body {
   transition: all 0.3s linear;
   float: right;
 }
-    .main-section.active {
-      width: 100%;
-    }
+
+.main-section.active {
+  width: 100%;
+}
 
 .navi-box {
   display: flex;
@@ -102,21 +103,22 @@ body {
 }
 
 /* navigation section style  */
-#sidebarCollapse{
+#sidebarCollapse {
   background-color: var(--icon-hover-background);
-    padding: 8px 12px;
-    border-radius: 50%;
-    height: 45px;
-    width: 45px;
-    transition: 0.3s linear;
+  padding: 8px 12px;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  transition: 0.3s linear;
 }
+
 /* #sidebarCollapse{
   display: flex;
   justify-content: center;
   align-items: center;
 } */
 
-.main-section #sidebarCollapse svg{
+.main-section #sidebarCollapse svg {
   height: 20px;
   width: 20px;
   transform: rotate(90deg);
@@ -124,46 +126,50 @@ body {
   color: #fff;
   margin-left: -3px;
   margin-top: -3px;
-      transition: 0.3s linear;
-}
-.main-section.active #sidebarCollapse svg {
-    transform: rotate(270deg);
-      margin-left: 1px;
-        margin-top: -3px;
+  transition: 0.3s linear;
 }
 
-.main-section .nav-box .logo-img{
+.main-section.active #sidebarCollapse svg {
+  transform: rotate(270deg);
+  margin-left: 1px;
+  margin-top: -3px;
+}
+
+.main-section .nav-box .logo-img {
   width: 120px;
   display: none;
   opacity: 0;
   transition: opacity 0.5s linear;
 }
-.main-section.active .nav-box .logo-img{
+
+.main-section.active .nav-box .logo-img {
   width: 120px;
   display: block;
   opacity: 1;
   transition: opacity 0.5s linear;
 }
 
-.settings svg ,.log-out svg{
+.settings svg,
+.log-out svg {
   fill: #fff;
   height: 24px;
   width: 24px;
 }
 
-.profile{
+.profile {
   display: flex;
   align-items: center;
   column-gap: 10px;
 }
 
-.profile .user-name{
+.profile .user-name {
   color: var(--white);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 130%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 130%;
 }
-.profile img{
+
+.profile img {
   height: 32px;
   width: 32px;
   border-radius: 50%;
@@ -870,6 +876,7 @@ body {
 
 .Timeline-container {
   padding: 35px;
+  overflow-x: scroll;
 }
 
 .grabs-timeline .header-box {
@@ -978,7 +985,7 @@ body {
 
 .complete .status {
   padding-right: 40px;
-  height: 92px;
+  height: 100px;
   padding-top: 20px;
   display: flex;
   justify-content: center;
@@ -986,11 +993,12 @@ body {
   border-top: 5px solid #d6dce0;
   position: relative;
   transition: all 200ms ease-in;
+  width: 165px!important;
 }
 
 .status {
   padding-right: 40px;
-  height: 92px;
+  height: 100px;
   padding-top: 37px;
   display: flex;
   justify-content: center;
@@ -998,6 +1006,7 @@ body {
   border-top: 5px solid #c0d1fc;
   position: relative;
   transition: all 200ms ease-in;
+  width: 150px!important;
 }
 
 .status h5 {
@@ -1057,7 +1066,7 @@ body {
 
 /* Handle on hover */
 .Timeline-container::-webkit-scrollbar-thumb:hover {
-  background: #b30000;
+  background: var(--timeline-color);
 }
 
 @media (min-device-width: 320px) and (max-device-width: 700px) {
@@ -1135,54 +1144,62 @@ body {
 
 #manPowerModal table {
   border-radius: 6px;
-  background-color: red!important;
+  background-color: red !important;
   border-collapse: separate !important;
-    border-spacing: 0;
+  border-spacing: 0;
 }
-#manPowerModal .table{
+
+#manPowerModal .table {
   border-radius: 6px;
 }
 
 
-#manPowerModal .modal-header .btn-close{
-    font-size: 16px;
-padding: 0;
-margin: 0;
+#manPowerModal .modal-header .btn-close {
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
 
 }
-#manPowerModal table th{
+
+#manPowerModal table th {
   /* border-radius: 50px; */
   background-color: var(--blue-color);
   font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    color: var(--white);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--white);
 }
-#manPowerModal table td{
-font-size: 16px;
+
+#manPowerModal table td {
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  color:#757575;
+  color: #757575;
 }
-#manPowerModal table tbody tr{
+
+#manPowerModal table tbody tr {
   border: none;
   border-width: 0;
   border-style: none;
   border-color: transparent;
 }
+
 #manPowerModal table tbody tr:first-child th {
-  border-radius: 6px 0px 0px 0px!important;
+  border-radius: 6px 0px 0px 0px !important;
 }
+
 #manPowerModal table tbody tr:first-child td {
-  border-radius: 0px 6px 0px 0px!important;
+  border-radius: 0px 6px 0px 0px !important;
 }
+
 #manPowerModal table tbody tr:last-child th {
-  border-radius: 0px 0px 0px 6px!important;
+  border-radius: 0px 0px 0px 6px !important;
 }
+
 #manPowerModal table tbody tr:last-child td {
-  border-radius: 0px 0px 6px 0px!important;
+  border-radius: 0px 0px 6px 0px !important;
 }
 
 
@@ -1312,9 +1329,10 @@ font-size: 16px;
     height: 24px;
     width: 24px;
   }
-    .btn:first-child:active{
-      border: none;
-    }
+
+  .btn:first-child:active {
+    border: none;
+  }
 
   .breakdown-container {
     gap: 18px;
@@ -1354,12 +1372,12 @@ font-size: 16px;
     margin: auto;
   }
 
-    .main-section .nav-box .logo-img {
-      width: 120px;
-      display: block;
-      opacity: 1;
-      transition: opacity 0.5s linear;
-    }
+  .main-section .nav-box .logo-img {
+    width: 120px;
+    display: block;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1626,15 +1644,135 @@ body .c-datepicker-picker {
 
 
 @media print {
+
+  @page {
+    border: none;
+  }
+
+  body {
+    background-color: #fff;
+  }
+
+  #myModal .modal-dialog .modal-body .table tbody td,
+  #myModal2 .modal-dialog .modal-body .table tbody td,
+  #myModal3 .modal-dialog .modal-body .table tbody td,
+  #myModal4 .modal-dialog .modal-body .table tbody td,
+  #manPowerModal .modal-dialog .modal-body .table tbody td,
+  #Total-repair .modal-dialog .modal-body .table tbody td,
+  #Total-grabs .modal-dialog .modal-body .table tbody td {
+    padding: 10px;
+  }
+
+  #weekly-grab-status .modal-dialog .modal-body .table thead td,
+  #weekly-shore-status .modal-dialog .modal-body .table tbody td {
+    padding: 20px;
+  }
+
+  #myModal,
+  #myModal *,
+  #myModal2,
+  #myModal2 *,
+  #myModal3,
+  #myModal3 *,
+  #myModal4,
+  #myModal4 *,
+  #weekly-grab-status,
+  #weekly-grab-status *,
+  #weekly-shore-status,
+  #weekly-shore-status *,
+  #manPowerModal,
+  #manPowerModal *,
+  #Total-repair,
+  #Total-repair *,
+  #Total-grabs,
+  #Total-grabs * {
+    visibility: visible;
+    width: 100% !important;
+  }
+
+  #myModal .modal-content,
+  #myModal2 .modal-content,
+  #myModal3 .modal-content,
+  #myModal4 .modal-content,
+  #weekly-grab-status .modal-content,
+  #weekly-shore-status .modal-content,
+  #manPowerModal .modal-content,
+  #Total-repair .modal-content,
+  #Total-grabs .modal-content {
+    border: none !important;
+  }
+
+  #myModal .modal-dialog,
+  #myModal2 .modal-dialog,
+  #myModal3 .modal-dialog,
+  #myModal4 .modal-dialog,
+  #weekly-grab-status .modal-dialog,
+  #weekly-shore-status .modal-dialog,
+  #manPowerModal .modal-dialog,
+  #Total-repair .modal-dialog,
+  #Total-grabs .modal-dialog {
+    max-width: 100% !important;
+  }
+
+  #myModal .btn-close,
+  #myModal2 .btn-close,
+  #myModal3 .btn-close,
+  #myModal4 .btn-close,
+  #weekly-grab-status .btn-close,
+  #weekly-shore-status .btn-close,
+  #manPowerModal .btn-close,
+  #Total-repair .btn-close,
+  #Total-grabs .btn-close {
+    display: none;
+  }
+
+  #myModal .modal-body,
+  #myModal2 .modal-body,
+  #myModal3 .modal-body,
+  #myModal4 .modal-body,
+  #weekly-grab-status .modal-body,
+  #weekly-shore-status .modal-body,
+  #manPowerModal .modal-body,
+  #Total-repair .modal-body,
+  #Total-grabs .modal-body {
+    margin: 10px 0px 0px 0px;
+    padding: 12px;
+  }
+
+  #myModal,
+  #myModal2,
+  #myModal3,
+  #myModal4,
+  #weekly-grab-status,
+  #weekly-shore-status,
+  #manPowerModal,
+  #Total-repair,
+  #Total-grabs {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    overflow: visible !important;
+  }
+
+
+  /* #Total-grabs */
+  body * {
+    visibility: hidden;
+    /* background-color: #fff; */
+  }
+
+  #weekly-shore-status .time {
+    display: none;
+  }
+
   .custom-btn {
     display: none;
   }
 
   .print-btn {
     display: none;
-  }
-
-  .modal-title {
-    margin-bottom: 20px;
   }
 }
