@@ -1843,3 +1843,98 @@ $(document).ready(function () {
   );
   weeklyChartOther.render();
 });
+
+
+// Generating GrabTimelineData list items dynamically
+const GrabTimelineData = [
+  {
+    date: "10 Jan 2023",
+    status: "Landed Tranship",
+    vessel: "M.V Jawad",
+    ClassItems: "complete",
+  },
+  {
+    date: "11 Jan 2023",
+    status: "Jetty",
+    vessel: "Shadharghat",
+    ClassItems: "complete",
+  },
+  {
+    date: "10 Jan 2023",
+    status: " Landed Tranship",
+    vessel: "M.V Jawad",
+    ClassItems: "complete",
+  },
+  {
+    date: "10 Jan 2023",
+    status: " Landed Tranship",
+    vessel: "M.V Jawad",
+    ClassItems: "",
+  },
+];
+
+const html = GrabTimelineData.map(
+  (item) => `
+  <li class="li ${item.ClassItems}">
+    <div class="timestamp">
+      <span class="date">${item.date}</span>
+    </div>
+    <div class="status">
+      <h5>${item.status}</h5>
+      <h6>${item.vessel}</h6>
+    </div>
+  </li>
+`
+).join("");
+const timelineElement = document.getElementById("grabs-timeline-list");
+console.log(timelineElement);
+timelineElement.innerHTML = html;
+
+
+
+// Generating GrabsHistory list items dynamically
+const GrabsHistory = [
+  {
+    date: "10 Jan 2023",
+    status: "Landed Tranship",
+    vessel: "M.V Jawad",
+    ClassItems: "complete",
+  },
+  {
+    date: "11 Jan 2023",
+    status: "Jetty",
+    vessel: "Shadharghat",
+    ClassItems: "complete",
+  },
+  {
+    date: "10 Jan 2023",
+    status: " Landed Tranship",
+    vessel: "M.V Jawad",
+    ClassItems: "complete",
+  },
+  {
+    date: "10 Jan 2023",
+    status: " Landed Tranship",
+    vessel: "M.V Jawad",
+    ClassItems: "",
+  },
+];
+
+const GrabsHistoryHtml = GrabsHistory.map(
+  (item) => `
+  <li class="li ${item.ClassItems}">
+    <div class="timestamp">
+      <span class="date">${item.date}</span>
+    </div>
+    <div class="status">
+      <h5>${item.status}</h5>
+      <h6>${item.vessel}</h6>
+    </div>
+  </li>
+`
+).join("");
+const historyElement = document.getElementById("GrabsLifeHistory");
+console.log(historyElement);
+historyElement.innerHTML = GrabsHistoryHtml;
+
+
