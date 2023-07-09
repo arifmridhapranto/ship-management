@@ -1855,16 +1855,16 @@ form .form-box-pera {
   }
 }
 
-@media screen and (max-width: 992px) {}
 
 @media screen and (max-width: 767px) {
   form .row {
-      padding: 20px 0px;
-    }
-            form .submit-btn {
-              font-size: 14px;
-              padding: 12px 22px;
-            }
+    padding: 20px 0px;
+  }
+
+  form .submit-btn {
+    font-size: 14px;
+    padding: 12px 22px;
+  }
 }
 
 
